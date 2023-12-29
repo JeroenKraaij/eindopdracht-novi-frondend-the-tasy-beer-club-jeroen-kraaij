@@ -1,0 +1,39 @@
+.main-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    background-color: #C84E80;
+
+}
+
+.logo-header {
+
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 30px;
+    width: 500px;
+
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    column-gap: 30px;
+}
+
+.default-link {
+    border-bottom: 1px solid transparent;
+    color: black;
+
+}
+.active-link {
+    border-bottom: 1px solid #1a1a1a;
+
+}
