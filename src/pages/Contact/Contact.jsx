@@ -5,7 +5,13 @@ import './Contact.css';
 function Contact () {
     return (
         <>
-            <header>Contact</header>
+            <main className='main-outer-container'>
+                <section className='main-inner-container'>
+                    <h1>Contact</h1>
+
+
+                </section>
+            </main>
         </>
     )
 }

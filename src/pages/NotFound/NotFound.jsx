@@ -5,7 +5,13 @@ import './NotFound.css';
 function NotFound() {
     return (
         <>
-            <header>Deze pagina bestaat niet</header>
+            <main className='main-outer-container'>
+                <section className='main-inner-container'>
+                    <h1>Deze pagina is niet gevonden</h1>
+
+
+                </section>
+            </main>
         </>
     )
 }

@@ -5,7 +5,13 @@ import './Blog.css';
 function Blog () {
     return (
         <>
-            <header>Blog</header>
+            <main className='main-outer-container'>
+                <section className='main-inner-container'>
+                    <h1>Blog</h1>
+
+
+                </section>
+            </main>
         </>
     )
 }

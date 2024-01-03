@@ -5,7 +5,13 @@ import './Smaaktest.css';
 function Smaaktest () {
     return (
         <>
-            <header>Smaaktest</header>
+            <main className='main-outer-container'>
+                <section className='main-inner-container'>
+                    <h1>Smaaktest</h1>
+
+
+                </section>
+            </main>
         </>
     )
 }

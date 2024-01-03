@@ -2,12 +2,18 @@ import React from "react";
 import './OverOns.css';
 
 
-function Overons() {
+function OverOns() {
     return (
         <>
-            <header>Over Ons</header>
+            <main className='main-outer-container'>
+                <section className='main-inner-container'>
+                    <h1>Over Ons</h1>
+
+
+                </section>
+            </main>
         </>
     )
 }
 
-export default Overons
+export default OverOns

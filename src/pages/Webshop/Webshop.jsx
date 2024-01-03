@@ -5,7 +5,13 @@ import './Webshop.css';
 function Webshop() {
     return (
         <>
-            <header>Webshop</header>
+            <main className='main-outer-container'>
+                <section className='main-inner-container'>
+
+
+
+                </section>
+            </main>
         </>
     )
 }
