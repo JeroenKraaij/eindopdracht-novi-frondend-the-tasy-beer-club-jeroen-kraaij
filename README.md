@@ -57,4 +57,16 @@ Het volgende is bereikt:
 - Vanaf morgen wil ik starten met de implementatie van het daadwerkelijke design en start ik ook met het aanmaken van de componenten. 
 - Deze versie heb ik naar GitHub - branch feature/startproject gestuurd
 
+4 januari 2024: 
+Gisteren toch nog verder gewerkt aan dit leuke project. Ik was benieuwd of ik al deze secties in het ontwerp kon zetten middels de stof uit de lessen. 
+De sectie voor de bieren heb ik via de API in een overzicht weten te krijgen. Ik heb hiervoor gebruik gemaakt van de Asynch functie en de Get.axios succesvol uitgevoerd op de url van de API. 
 
+1. De bieren zijn nu zichtbaar op de pagina Webshop
+2. De bieren worden via het component "ProductArticle" getoond
+3. CSS is aangemaakt maar ik heb nog een probleem met de Flex-wrap. Deze werkt nog niet goed en de bieren staan nu nog onder elkaar
+4. Een andere sectie toegevoegd, namelijk doe van de blogs. 
+5. De blogs zijn zelf geschreven content die ik een een Json bestand heb gezet. Het is niet een zeer belangrijk onderdeel van de functionaliteit maar geeft extra informatie. 
+6. Branch "feature/startproject" heb ik samengevoegd met de Main branch. 
+7. Nieuwe Branch aangemaakt ""feature/design"
+8. Start gemaakt met het volledige design
+   

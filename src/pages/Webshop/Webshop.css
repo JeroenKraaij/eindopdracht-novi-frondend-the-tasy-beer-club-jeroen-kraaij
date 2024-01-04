@@ -1,0 +1,13 @@
+
+
+.product-overview {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: darkseagreen;
+
+}
+.test {
+    flex-wrap: wrap;
+    width: 250px;
+}

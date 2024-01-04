@@ -27,11 +27,12 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   --secondary-light: #6eeda8;
   --accent-color-1: #e74c3c;
   --accent-color-2: #f39c12;
-  --background-color-1: #ecf0f1;
+  --background-color-1: #ffffff;
   --background-color-2: #91bed2;
   --text-color: #333;
   --header-text-color: #000000;
   --button-background-color: #f39c12;
+  --border-color: #333333;
 }
 
 /*////////////////////////
@@ -101,7 +102,6 @@ body {
   font-size: 18px;
 }
 
-
 a {
   font-weight: 500;
   color: var(--accent-color-1);
@@ -165,7 +165,7 @@ img {
 /* Desktop  */
 @media only screen and (min-width: 901px) {
   body {
-    background-color: var(--background-color-2);
+    background-color: var(--background-color-1);
   }
   .main-inner-container {
     flex-basis: 1200px;

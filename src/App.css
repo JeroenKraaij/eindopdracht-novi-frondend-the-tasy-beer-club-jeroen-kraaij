@@ -9,7 +9,7 @@
 .main-inner-container {
     display: flex;
     flex-direction: column;
-    background-color: orange;
+    background-color: var(--background-color-1);
     padding: 100px;
     margin-left: 20px;
     margin-right: 20px;
