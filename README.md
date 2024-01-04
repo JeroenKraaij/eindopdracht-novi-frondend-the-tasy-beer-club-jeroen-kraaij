@@ -49,7 +49,7 @@ Het volgende is bereikt:
 - De button en links hebben een voorlopige styling en alles staat uitgewerkt op een nieuwe pagina "Design"
 - De pagina "Design" heb ik aangemaakt om te zien of alles juist wordt weergegeven. Deze pagina wordt verwijderd als het project wordt opgeleverd
 - Binnen de App.css zijn twee belangrijke classes aangemaakt. Een outer en inner container om de hoofdcontent al juist weer te geven
-- De outer en inner container worden ook gebruikt om meer controlle te houden over de responsiveness 
+- De outer en inner container worden ook gebruikt om meer controle te houden over de responsiveness 
 - Het design en de website ziet er nu zo uit:
 
 ![](/Users/jkraaij/Desktop/Screenshot 2024-01-03 at 11.51.43.png)
