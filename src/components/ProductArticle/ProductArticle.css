@@ -1,0 +1,25 @@
+
+
+.product-article {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    align-items: center;
+    margin-top: 20px;
+    padding: 50px 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color-2);
+}
+
+.product-article h2 {
+    font-size: 25px;
+    font-weight: normal;
+    text-align: center;
+}
+.product-image {
+    width: 100px;
+    height: 100%;
+}
+.product-description {
+    text-align: center;
+}
