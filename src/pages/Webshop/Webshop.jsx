@@ -1,40 +1,69 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 import './Webshop.css';
 import ProductArticle from "../../components/ProductArticle/ProductArticle.jsx";
 
-function Webshop() {
+
+export default function Webshop() {
     const [beers, setBeers] = useState([]);
+    const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('');
+    const [searchQuery, setSearchQuery] = useState('')
 
     useEffect(() => {
-        getBeers();
-    }, []);
-
-    async function getBeers() {
-        setError('');
+    const abortController = new AbortController()
+    async function fetchBeers () {
         try {
-            const result = await axios.get('https://api.punkapi.com/v2/beers');
-            setBeers(result.data);
+            setIsLoading(true)
+
+            let endpoint = 'https://api.punkapi.com/v2/beers';
+            if (searchQuery) {
+                endpoint = `https://api.punkapi.com/v2/beers/${searchQuery}`
+            }
+            const response = await axios.get(endpoint,{
+
+                signal: abortController.signal,
+            });
+            console.log(response)
+            setBeers(response.data);
         } catch (e) {
             console.error(e);
-            setError('Error get Beer data');
+            setError('');
+        } finally {
+            setIsLoading(false)
         }
     }
+
+    fetchBeers ()
+
+        return () => {
+        console.log('Clean Up');
+            abortController.abort();
+        }
+    }, [searchQuery]);
 
     return (
         <>
             <main className='main-outer-container'>
                 <section className='main-inner-container'>
                     <h1>Webshop</h1>
+                        <input
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder='Zoek je bier'
+                        />
                         <article className='product-overview'>
-                            {beers.length > 0 && (
-                                <ul className='test'>
-                                    {beers.map((beer) => (
+                            {isLoading && <h2>Is Loading...</h2>}
+                            {error && <h2>{error}</h2>}
+
+                            <ul>
+                                <li>
+                                    {beers?.map((beer) => (
                                         <ProductArticle key={beer.id} beer={beer} />
                                 ))}
-                                </ul>
-                        )}
+                                </li>
+                            </ul>
                         {error && <p className="error">{error}</p>}
                     </article>
                 </section>
@@ -42,5 +71,3 @@ function Webshop() {
         </>
     );
 }
-
-export default Webshop;

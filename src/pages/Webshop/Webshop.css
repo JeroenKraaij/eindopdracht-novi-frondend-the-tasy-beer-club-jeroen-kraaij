@@ -2,12 +2,16 @@
 
 .product-overview {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    background-color: darkseagreen;
+}
+.product-overview ul {
 
 }
-.test {
-    flex-wrap: wrap;
-    width: 250px;
+.product-overview ul li {
+    background-color: #006280;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+
 }

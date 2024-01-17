@@ -1,13 +1,19 @@
-import React from "react";
-import './Footer.css'
+import React from 'react';
+import styles from './Footer.module.css';
 
 
-function Footer() {
+export default function Footer() {
+    const currentYear = new Date().getFullYear();
+
     return (
         <>
-            <footer className="main-footer">Footer</footer>
+                <div className={styles ["main-footer-content"]} >
+                    Hello, I'm a Footer
+                </div>
+                <div className={styles ["main-footer-credits"]} >
+                    Alle rechten voorbehouden | Tasty Beer Club {currentYear}
+                </div>
+
         </>
     )
 }
-
-export default Footer

@@ -1,19 +1,20 @@
-import React from "react";
-import './Smaaktest.css';
+import styles from './Smaaktest.module.css';
+import ChooseTaste from "../../components/ChooseTaste/ChooseTaste.jsx";
 
 
-function Smaaktest () {
+export default function Smaaktest() {
+
     return (
-        <>
-            <main className='main-outer-container'>
-                <section className='main-inner-container'>
-                    <h1>Smaaktest</h1>
+        <article className={styles['choose-taste']}>
+            <div className={styles['taste-menu']}>
 
+                    <button className={styles['taste-button']}>1. Smaaktest</button>
+                    <button className={styles['taste-button']}>2. Kies je box</button>
+                    <button className={styles['taste-button']}>3. Bestellen</button>
 
-                </section>
-            </main>
-        </>
+                <div className={styles['taste-statusbar']}>Statusbar</div>
+            </div>
+            <ChooseTaste/>
+        </article>
     )
 }
-
-export default Smaaktest

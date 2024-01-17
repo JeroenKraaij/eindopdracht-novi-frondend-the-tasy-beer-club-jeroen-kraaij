@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 /*////////////////////////
     Reset Global Styles
 ////////////////////////*/
@@ -17,20 +19,26 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
 ////////////////////////*/
 
 :root {
-  --primary-color: #3498db;
-  --primary-dark: #2368a0;
-  --primary-light: #6ab9f3;
+  --primary-dark-green: #2B4836;
+  --primary-light-green: #999E66;
+  --primary-light-brown: #BE8E66;
   --primary-white: #FFFFFF;
   --primary-black: #000000;
-  --secondary-color: #2ecc71;
-  --secondary-dark: #239a4c;
-  --secondary-light: #6eeda8;
-  --accent-color-1: #e74c3c;
-  --accent-color-2: #f39c12;
-  --background-color-1: #ffffff;
-  --background-color-2: #91bed2;
-  --text-color: #333;
-  --header-text-color: #000000;
+
+  --secondary-light-yellow: #FFEFBC;
+  --secondary-orange: #ED8F45;
+  --secondary-pink: #E3A1AD;
+
+  --accent-color-1: #f7ff00;
+  --accent-color-2: #e74c3c;
+
+  --background-color-1: #2B4836;
+  --background-color-2: #ffffff;
+
+  --text-color: #212121;
+  --header-text-color: #2B4836;
+  --menu-color:  #FFFFFF;
+
   --button-background-color: #f39c12;
   --border-color: #333333;
 }
@@ -40,84 +48,143 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
 ////////////////////////*/
 
 @font-face {
-  font-family: 'Open Sans', sans-serif;
-  src: url("./assets/fonts/OpenSans-ExtraBold.ttf") format('ttf');
+  font-family: 'Noto Sans', sans-serif;;
+  src: url("./assets/fonts/NotoSans_Condensed-Black.ttf") format('ttf');
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Open Sans', sans-serif;
-  src: url("./assets/fonts/OpenSans-Bold.ttf") format('ttf');
+  font-family: 'Noto Sans', sans-serif;
+  src: url("./assets/fonts/NotoSans_Condensed-ExtraBold.ttf") format('ttf');
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Open Sans', sans-serif;
-  src: url("./assets/fonts/OpenSans-Regular.ttf") format('ttf');
-  font-weight: normal;
+  font-family: 'Noto Sans', sans-serif;
+  src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans', sans-serif;
+  src: url("./assets/fonts/NotoSans_Condensed-SemiBold.ttf") format('ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans', sans-serif;
+  src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans', sans-serif;
+  src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans', sans-serif;
+  src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans', sans-serif;
+  src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans', sans-serif;
+  src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
+  font-weight: 100;
   font-style: normal;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  color: var(--header-text-color);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  color: var(--header-text-color);
+  font-size: 2.75rem;
 }
+
 h2 {
-  font-size: 3em;
-  line-height: 1.1;
-  color: var(--header-text-color);
+  font-size: 2.375rem;
 }
+
 h3 {
-  font-size: 2.6em;
-  line-height: 1.1;
-  color: var(--header-text-color);
+  font-size: 2rem;
 }
+
 h4 {
-  font-size: 2em;
-  line-height: 1.1;
-  color: var(--header-text-color);
+  font-size: 1.75rem;
 }
+
 h5 {
-  font-size: 1.6em;
-  line-height: 1.1;
-  color: var(--header-text-color);
+  font-size: 1.5rem;
 }
+
 h6 {
-  font-size: 1.2em;
-  line-height: 1.1;
-  color: var(--header-text-color);
+  font-size: 1.125rem;
 }
 
 /*////////////////////////
     Global Styles
 ////////////////////////*/
+/* Mobile */
 
 body {
+  /* Common */
   display: flex;
-  width: 100%;
   flex-direction: column;
-  font-family: 'Open Sans', sans-serif;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1rem;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: normal;
-  font-size: 18px;
+  color: var(--text-color);
+
+  /* Tablet */
+  @media only screen and (min-width: 601px) and (max-width: 900px) {
+      background-color: var(--background-color-2);
+
+
+  }
+
+  /* Desktop  */
+  @media only screen and (min-width: 901px) and (max-width: 1200px) {
+      background-color: var(--background-color-2);
+
+  }
+
+  /* Wide screen */
+  @media only screen and (min-width: 1201px) {
+    background-color: var(--background-color-2);
+
+  }
+
 }
 
 a {
   font-weight: 500;
-  color: var(--accent-color-1);
+  color: var(--accent-color-2);
   text-decoration: inherit;
 }
 a:hover {
-  color: var(--accent-color-2);
+  color: var(--accent-color-1);
 }
-
 
 button {
   border-radius: 8px;
   border: 1px solid #535bf2;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
   background-color: var(--button-background-color);
@@ -134,50 +201,3 @@ button:focus-visible {
 img {
   width: 100%;
 }
-
-/*////////////////////////
-    Responsiveness
-////////////////////////*/
-
-/* Mobile */
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: var(--background-color-1);
-
-
-  }
-  .main-inner-container {
-  flex-basis: 200px;
-  }
-}
-
-/* Tablet */
-@media only screen and (min-width: 601px) and (max-width: 900px) {
-  body {
-    background-color: var(--background-color-1);
-  }
-  .main-inner-container {
-    flex-basis: 700px;
-  }
-
-}
-
-/* Desktop  */
-@media only screen and (min-width: 901px) {
-  body {
-    background-color: var(--background-color-1);
-  }
-  .main-inner-container {
-    flex-basis: 1200px;
-  }
-}
-
-
-
-
-
-
-
-
-
-

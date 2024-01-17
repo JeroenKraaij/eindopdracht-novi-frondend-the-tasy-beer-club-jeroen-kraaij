@@ -1,0 +1,22 @@
+
+.main-footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    background-color: var(--background-color-1);
+    color: var(--primary-white);
+}
+.main-footer-credits {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    background-color: var(--primary-black);
+    font-size: 0.75rem;
+    color: var(--primary-white);
+}
+
