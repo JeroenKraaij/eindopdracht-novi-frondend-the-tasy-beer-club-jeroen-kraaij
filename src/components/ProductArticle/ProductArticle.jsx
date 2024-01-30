@@ -1,17 +1,22 @@
-import React from "react";
 import './ProductArticle.css';
+import { Link } from 'react-router-dom';
 
-function ProductArticle({beer}) {
+export default function ProductArticle ({ beer }) {
+    if (!beer) {
+        return <div>Loading...</div>;
+    }
+
     return (
-        <>
-            <div className='product-article'>
-                <h2>{beer.name}</h2>
-                <img className='product-image' src={beer.image_url} alt={beer.name}/>
-                <text className='product-description'>{beer.description}</text>
-                <button>Meer informatie</button>
-            </div>
-        </>
-    );
-}
+        <div className='product-card'>
+            <h2>{beer.name}</h2>
+            <img className='product-card-image' src={beer.image_url} alt={`Image of ${beer.name}`} />
+            <div className='product-card-description'>{beer.description}</div>
+            <Link to={`/product/${beer.id}`}>
 
-export default ProductArticle;
+                <button>Meer informatie</button>
+            </Link>
+
+        </div>
+    );
+};
+

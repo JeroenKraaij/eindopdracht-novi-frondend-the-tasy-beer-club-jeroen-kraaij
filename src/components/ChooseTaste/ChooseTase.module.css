@@ -1,0 +1,22 @@
+
+
+.main-choose-taste {
+
+}
+.main-choose-image {
+    height: 350px;
+    width: 350px;
+}
+.chosen-image {
+    height: 350px;
+    width: 350px;
+}
+
+.taste-statusbar {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}

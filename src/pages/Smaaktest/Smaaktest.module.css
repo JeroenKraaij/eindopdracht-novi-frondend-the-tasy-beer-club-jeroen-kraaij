@@ -1,0 +1,16 @@
+.choose-taste {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.taste-button {
+    background-color: var(--crl-secondary-light-yellow);
+    border-radius: 50px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: var(--font-w-black);
+    font-size: 1rem;
+
+}

@@ -1,17 +1,13 @@
-import React from "react";
-import './OverOns.css';
+import styles from './OverOns.module.css';
 
 
 function OverOns() {
     return (
         <>
-            <main className='main-outer-container'>
-                <section className='main-inner-container'>
-                    <h1>Over Ons</h1>
+            <article className={styles ['article-about']}>
+                <h1>Over ons</h1>
 
-
-                </section>
-            </main>
+            </article>
         </>
     )
 }

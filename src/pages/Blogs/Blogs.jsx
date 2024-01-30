@@ -1,30 +1,43 @@
-import './Blogs.css'
-import React from 'react';
-import {Link, useParams} from 'react-router-dom';
-import posts from '../../constants/blogdata.json';
+import styles from '../Blogs/Blogs.module.css';
+import { Link, useParams } from 'react-router-dom';
+import posts from '../../constants/blogData.json';
 
-const Blogs = () => {
+
+export default function Blogs () {
     const { id } = useParams();
-    const post = posts.find(post => {
-        return post.id === parseInt(id, 10);
-    });
+    const articlePost = posts.find(post => post.id === parseInt(id, 10));
+
+    if (!articlePost) {
+        return <p>Post not found</p>;
+    }
+
+    const {
+        titleH1, mainSubtitle, mainArticle, titleH2, article02, titleH3, article03, titleH4, article04, titleH5, article05,
+        author, readTime, comments, shares, images
+    } = articlePost;
 
     return (
-        <>
-            <article >
-                <div >
-                    <h1>{post.title}</h1>
-                    <h2>{post.subtitle}</h2>
-                    <p>Geschreven door {post.author} op </p>
-                    <p>⏰ {post.readTime} minuten leestijd</p>
-                    <p>{post.content}</p>
-                    <p>{post.comments} reactions - {post.shares} times shared</p>
-
-                </div>
-                <Link to={`/blogs`}><button>Back to blogs</button></Link>
-            </article>
-        </>
-    )
+        <article className={styles ['article-blog']} >
+            <div key={articlePost.id}>
+                <h1>{titleH1}</h1>
+                <p>{mainSubtitle}</p>
+                <img src={images.url} alt={titleH1}/>
+                <p>{mainArticle}</p>
+                <h3>{titleH2}</h3>
+                <p>{article02}</p>
+                <h3>{titleH3}</h3>
+                <p>{article03}</p>
+                <h4>{titleH4}</h4>
+                <p>{article04}</p>
+                <h5>{titleH5}</h5>
+                <p>{article05}</p>
+                <p>Geschreven door {author} op </p>
+                <p>⏰ {readTime} minuten leestijd</p>
+                <p>{comments} reacties - {shares} keer gedeeld</p>
+            </div>
+            <Link to="/artikelen">
+                <button>Terug naar Blogs</button>
+            </Link>
+        </article>
+    );
 }
-
-export default Blogs

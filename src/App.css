@@ -1,16 +1,115 @@
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 1 ;
+    align-items: center;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color-1);
+
+}
 
 .main-outer-container {
     display: flex;
     flex-direction: row;
+    background-color: var(--background-color-2);
+    padding: 50px 0;
     width: 100%;
     justify-content: center;
-    align-items: center;
+
 }
 .main-inner-container {
+    /* Mobile */
     display: flex;
     flex-direction: column;
-    background-color: var(--background-color-1);
-    padding: 100px;
-    margin-left: 20px;
-    margin-right: 20px;
+    justify-content: space-between;
+    background-color: var(--clr-primary-white);
+    width: 600px;
+    min-height: 50vh;
+    padding: 50px;
+    margin:0 20px;
+    border-radius: var(--border-rad-s);
+
+    /*Tablet */
+    @media only screen and (min-width: 601px) and (max-width: 900px) {
+
+        .main-header {
+
+            background-color: var(--background-color-1);
+
+
+        }
+
+
+
+
+        .main-inner-container {
+            background-color: var(--clr-primary-white);
+            width: 900px;
+        }
+
+    }
+
+    /* Desktop  */
+    @media only screen and (min-width: 901px) and (max-width: 1200px) {
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            flex-shrink: 1 ;
+            align-items: center;
+            background-color: var(--background-color-1);
+            height: 125px;
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+
+        }
+
+
+
+        .main-inner-container {
+            background-color: var(--clr-primary-white);
+            width: 1200px;
+        }
+
+    }
+
+    /* Wide Screens  */
+    @media only screen and (min-width: 1201px) {
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            flex-shrink: 1 ;
+            align-items: center;
+            background-color: var(--background-color-1);
+            height: 125px;
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+
+        }
+
+
+        width: 1200px;
+    }
 }
+
+.main-footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+
+
+
+
+
+
+
+
+

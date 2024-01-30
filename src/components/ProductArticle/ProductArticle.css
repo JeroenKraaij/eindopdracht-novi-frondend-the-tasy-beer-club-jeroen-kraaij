@@ -1,25 +1,26 @@
 
 
-.product-article {
+.product-card {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 100%;
     align-items: center;
+    row-gap: 30px;
     margin-top: 20px;
     padding: 50px 20px;
     border: 1px solid var(--border-color);
     background-color: var(--background-color-2);
 }
 
-.product-article h2 {
-    font-size: 25px;
-    font-weight: normal;
+.product-card h2 {
+    font-size: 30px;
+    font-weight: bold;
     text-align: center;
 }
-.product-image {
-    width: 100px;
-    height: 100%;
+.product-card-image {
+    width: 150px;
+    height: 450px;
 }
-.product-description {
+.product-card-description {
     text-align: center;
 }
