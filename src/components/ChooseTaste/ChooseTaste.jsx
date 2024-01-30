@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import styles from './ChooseTase.module.css';
 import Banaan from '../../assets/images/Tasty Beer Club Smaaktest image banaan.webp';
 import Caramel from '../../assets/images/Tasty Beer Club Smaaktest image caramel.webp';
@@ -9,18 +11,12 @@ import Coffee from '../../assets/images/Tasty Beer Club Smaaktest image koffie.w
 import Nuts from '../../assets/images/Tasty Beer Club Smaaktest image noten.webp';
 import Prunes from '../../assets/svg/Pruimen.svg';
 import Sushi from '../../assets/svg/Sushi.svg';
-import ThumpDown from '../../assets/svg/Icone_thump_down.svg';
-import ThumpUp from '../../assets/svg/Icone_thump_up.svg';
 
 export default function ChooseTaste() {
     const [currentImages, setCurrentImages] = useState(0);
-    const [selectedImages, setSelectedImages ] = useState([]);
-    const [notSelectedImages, setNotSelectedImages] = useState([]);
-    const [currentCategory, setCurrentCategory] = useState('');
-    const [categoryArray, setCategoryArray] = useState([]);
     const [categoryCounts, setCategoryCounts] = useState({});
+    const [currentCategory, setCurrentCategory] = useState('');
     const [buttonDisabled, setButtonDisabled] = useState(true);
-
 
     const imageUrls = [Banaan, Caramel, Chocola, Citrus, Cinnamon, Coffee, Nuts, Prunes, Sushi];
 
@@ -30,82 +26,86 @@ export default function ChooseTaste() {
         'Bitter en hop-gedomineerd bier',
         'Zoet en mout-gedomineerd bier',
         'Donker, zoet en zwaar bier',
-        'De smaaktest is ingevuld',
+        'Deze smaak vind je niet lekker',
     ];
 
     const updateCategory = (index) => {
-        let category = '';
-        switch (index) {
-            case Banaan:
-            case Caramel:
-            case Nuts:
-                category = categories[0];
-                break;
-            case Chocola:
-            case Citrus:
-            case Cinnamon:
-                category = categories[1];
-                break;
-            case Coffee:
-            case Prunes:
-                category = categories[3];
-                break;
-            case Sushi:
-                category = categories[4];
-                break;
-            default:
-                category = categories[5];
-        }
-        setCurrentCategory(category);
-        setCategoryArray([...categoryArray, category]);
+        const selectedCategory = (() => {
+            switch (index) {
+                case Banaan:
+                case Caramel:
+                case Nuts:
+                    return categories[0];
+                case Chocola:
+                case Citrus:
+                case Cinnamon:
+                    return categories[1];
+                case Coffee:
+                case Prunes:
+                    return categories[3];
+                case Sushi:
+                    return categories[4];
+                default:
+                    return categories[5];
+            }
+        })();
 
+        setCurrentCategory(selectedCategory); // Set the current category
         setCategoryCounts((prevCounts) => ({
             ...prevCounts,
-            [category]: (prevCounts[category] || 0) + 1,
+            [selectedCategory]: (prevCounts[selectedCategory] || 0) + 1,
         }));
 
-        if (category === categories[5] && buttonDisabled) {
+        if (selectedCategory === categories[5] && buttonDisabled) {
             setButtonDisabled(false);
             console.log(buttonDisabled);
         }
     };
 
-    const buttonUp = () => {
-        setSelectedImages([...selectedImages, imageUrls[currentImages]]);
-        updateCategory(imageUrls[currentImages]);
-        setCurrentImages(currentImages + 1);
-    };
-    const buttonDown = () => {
-        setNotSelectedImages([...notSelectedImages, imageUrls[currentImages]]);
+    const handleButtonClick = (isUp) => {
+        const currentImage = imageUrls[currentImages];
+
+        if (isUp) {
+            updateCategory(currentImage);
+        } else {
+            updateCategory(categories[5]);
+        }
         setCurrentImages(currentImages + 1);
     };
 
+    useEffect(() => {
+        const apiUrl = '${process.env.PUBLIC_URL}/constants/tasteResults.json';
+        const results = {
+            currentCategory,
+            counts: categoryCounts,
+            timestamp: new Date().toISOString(),
+        };
+
+        axios.post(apiUrl, results)
+            .then(response => {
+                console.log('Results sent successfully:', response.data);
+            })
+            .catch(error => {
+                console.error('Error sending results:', error.message);
+            });
+    }, [currentCategory, categoryCounts]);
+
     return (
-        <div className={styles['main-choose-taste']}>
-            <img
-                className={styles['main-choose-image']}
-                src={imageUrls[currentImages]}
-                alt={`Image ${currentImages + 1}`}
-            />
-            <div>
-                <button onClick={buttonUp} >👍🏼
-                </button>
-                <button onClick={buttonDown} >👎🏼
-                </button>
+        <>
+            <div className={styles['taste-statusbar']}>
+                Statusbar: {Object.values(categoryCounts).reduce((sum, count) => sum + count, 0)} choices
             </div>
-            <p>{currentCategory}</p>
-            <div>
-                <h3>Uitkomst Smaaktest</h3>
-                <ul>
-                    <li>
-                        {Object.entries(categoryCounts).map(([category, count]) => (
-                            <div key={category}>
-                                {`${category}: ${count}`}
-                            </div>
-                        ))}
-                    </li>
-                </ul>
+            <div className={styles['main-choose-taste']}>
+                <img
+                    className={styles['main-choose-image']}
+                    src={imageUrls[currentImages]}
+                    alt={`Image ${currentImages + 1}`}
+                />
+                <div>
+                    <button onClick={() => handleButtonClick(true)}>👍🏼</button>
+                    <button onClick={() => handleButtonClick(false)}>👎🏼</button>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

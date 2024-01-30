@@ -16,7 +16,7 @@ export default function Webshop() {
         try {
             setIsLoading(true)
 
-            let endpoint = 'https://api.punkapi.com/v2/beers';
+            let endpoint = 'https://api.punkapi.com/v2/beers?page=1&per_page=80';
             if (searchQuery) {
                 endpoint = `https://api.punkapi.com/v2/beers/${searchQuery}`
             }
@@ -44,8 +44,6 @@ export default function Webshop() {
 
     return (
         <>
-            <main className='main-outer-container'>
-                <section className='main-inner-container'>
                     <h1>Webshop</h1>
                         <input
                             type="text"
@@ -66,8 +64,6 @@ export default function Webshop() {
                             </ul>
                         {error && <p className="error">{error}</p>}
                     </article>
-                </section>
-            </main>
         </>
     );
 }

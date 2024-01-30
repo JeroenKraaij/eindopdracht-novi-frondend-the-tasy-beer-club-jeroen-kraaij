@@ -18,7 +18,7 @@
     "comments": 12,
     "shares": 8,
     "images": {
-      "url": "/public/images/image1.webp"
+      "url": "/images/image1.webp"
     }
   },
   {
@@ -40,7 +40,7 @@
     "comments": 12,
     "shares": 8,
     "images": {
-      "url": "/public/images/image1.webp"
+      "url": "/images/image1.webp"
     }
   },
   {
@@ -62,7 +62,7 @@
     "comments": 12,
     "shares": 8,
     "images": {
-      "url": "/public/images/image2.webp"
+      "url": "/images/image2.webp"
     }
   },
   {
@@ -84,7 +84,7 @@
     "comments": 12,
     "shares": 8,
     "images": {
-      "url": "/public/images/image3.webp"
+      "url": ""
     }
   }
 

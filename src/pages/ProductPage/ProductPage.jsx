@@ -1,23 +1,23 @@
+import styles from './ProductPage.module.css';
+import { Link, useParams } from 'react-router-dom';
 
-import React from 'react';
-import styles from './ProductPage.module.css/';
-import { useParams } from 'react-router-dom';
-
-export default function ProductPage({ beers }) {
+export default function ProductPage ( { beer } ) {
     const { id } = useParams();
-    const beer = beers.find((beer) => {
-        return beer.id === parseInt(id, 10);
-    });
+    const beerProduct = beer.find(beer => beer.id === parseInt(id, 10));
 
-    if (!beer) {
+    if (!beerProduct) {
         return <div>Product not found</div>;
     }
 
     return (
-        <div className={styles.productPage}>
-            <h2>{beer.name}</h2>
-            <img className={styles.productImage} src={beer.image_url} alt={beer.name} />
-            <p>{beer.description}</p>
-        </div>
+        <>
+            <div key={beerProduct.id} className={styles.productPage}>
+                <p>{beerProduct.name}</p>
+                <p>{beerProduct.description}</p>
+            </div>
+            <Link to="/webshop">
+                <button>Terug naar Webshop</button>
+            </Link>
+        </>
     );
 }

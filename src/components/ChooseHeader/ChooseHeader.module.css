@@ -1,0 +1,22 @@
+.choose-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+
+}
+
+.label-header-default {
+    text-transform: uppercase;
+    font-weight: var(--font-w-black);
+    color: var(--clr-grey-300);
+}
+.label-header-active {
+    text-transform: uppercase;
+    font-weight: var(--font-w-black);
+    color: var(--clr-primary-dark-green);
+    background-color: var(--crl-secondary-light-yellow);
+    padding: 10px 20px;
+    border-radius: var(--border-rad-m);
+
+}

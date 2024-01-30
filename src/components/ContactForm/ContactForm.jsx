@@ -9,7 +9,6 @@ export default function ContactForm () {
     }
 
     return (
-
         <form onSubmit={handleSubmit(handleFormSubmit)} className={styles ['contact-form']}>
             <label htmlFor="name-field">
                 <span>Naam:</span>

@@ -114,10 +114,33 @@ Deze zijn allemaal opgenomen in de index.css als globale style. De main header z
 - Het CSS moet vervolgens het nav .hamburger-menu omzetten van "none" naar "flex" zetten. Maar hier ervaar ik nog problemen en zal dit aan een docent voorleggen.
 - Voor de rest schaalt de hele applicatie zoal dat gewenst is dus dat is mooi!
 
-15 & 16 januari
+15, 16 & 17 januari
 - Een component wat minder complex is dan de Smaaktest bijvoorbeeld, is het bloggedeelte. 
 - Ik vind het leuk om meer content op de website te tonnen en heb daarom een blogpagina gemaakt. 
 - In de stof hebben wij uitgebreid de werking van de blog behandeld. Ik heb dit één op één overgenomen.
 - Daarbij heb ik een eigen JSon file gemaakt in de map "constants". Dit bestand heeft 4 blogartikelen die getoond worden op de pagina "Blog".
 - Er kan worden doorgeklikt van de blogpagina naar het daadwerkelijk blogartikel.
 - De gegevens zijn allemaal dynamisch en de blogs worden in de Route goed afgehandeld.
+
+20, 21, 26 & 27 januari 
+In de ontwikkeling van de "Smaaktest" ben ik tegen een probleem aangelopen. 
+De data die ik genereer via de Smaaktest wil ik opslaan in een ander component. Dit component is "Kies je Box"
+Alleen wordt de data verwijderd (gaat verloren) bij het klikken naar de "Kies je Box". Dit is ook logisch want "Kies je Box" wordt opnieuw gerenderd. 
+De data van Smaaktest zal ik toch ergen moeten opslaan. Hier ben ik nog mee bezig en kom ik later op terug.
+- Smaaktest is verder afgemaakt
+- Component "Kies je box" is aangemaakt en wordt getoond via een button op de Smaaktest.
+- Nog aan styling gewerkt. Helaas is het nog niet gelukt om responsiveness te verbeteren van vooral mobile.
+- Op de Smaaktest heb ik ook een statusbar gemaakt
+
+30 januari
+- Aanmaak van winkelmandje 
+- Binnen het winkelmandje kun je je gegevens invullen voor het versturen van de bierboxen. 
+- Ook kun je in de winkelmand registreren voor de inlog / account.
+- Ik heb een formulier gemaakt dat via de useState alle velden aanspreekt. 
+- Voor de authentication van de sign-up, inloggen en uitloggen wil in een nieuwe branch gaan doen. 
+- Omdat ik projecten later echt wil gaan gebruiken heb ik besloten om een externe backend te werken. 
+- Mijn gegevens verwerking ga ik Google Firebase gebruiken. 
+- Ik begrijp dat dit een risico is maar ik heb ontzettend goede documentatie gevonden inclusief Youtube tutorials 
+- Voor mij is het leerproces van het gebruik van een onafhankelijke backend belangrijk en heb daarom hiervoor gekozen. 
+- Om het risico te beperken maak ik wel een nieuwe branch aan en als het toch blijkt niet te werken stap ik toch over naar de Novi Backend.
+

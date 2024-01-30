@@ -1,19 +1,16 @@
-import './Account.css';
-import Login from "../Login/Login.jsx";
+
+// Styles
+import styles from './Account.module.css';
+
+
 
 export default function Account () {
     return (
         <>
-            <main className='main-outer-container'>
-                <section className='main-inner-container'>
-                    <h1>Account</h1>
-                    <p>Alleen toegankelijk door in te loggen </p>
-                    <Login/>
+            <article className={styles ['article-account']}>
+                <h1>Account</h1>
 
-
-
-                </section>
-            </main>
+            </article>
         </>
     )
 }

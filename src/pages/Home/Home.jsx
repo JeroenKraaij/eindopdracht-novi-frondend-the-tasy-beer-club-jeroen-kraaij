@@ -1,19 +1,13 @@
-import React from "react";
-import './Home.css';
+import styles from './Home.module.css';
 
 
-function Home() {
+export default function Home() {
     return (
         <>
-            <main className='main-outer-container'>
-                <section className='main-inner-container'>
-                    <h1>Home Pagina</h1>
+            <article className={styles ['article-home']}>
+            <h1>Home</h1>
+            </article>
 
-
-                </section>
-            </main>
         </>
     )
 }
-
-export default Home

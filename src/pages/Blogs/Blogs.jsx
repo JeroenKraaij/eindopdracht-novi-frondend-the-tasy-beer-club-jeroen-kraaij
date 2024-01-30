@@ -1,7 +1,9 @@
+import styles from '../Blogs/Blogs.module.css';
 import { Link, useParams } from 'react-router-dom';
-import posts from '../../constants/blogdata.json';
+import posts from '../../constants/blogData.json';
 
-export default function BlogPost() {
+
+export default function Blogs () {
     const { id } = useParams();
     const articlePost = posts.find(post => post.id === parseInt(id, 10));
 
@@ -15,19 +17,19 @@ export default function BlogPost() {
     } = articlePost;
 
     return (
-        <article >
+        <article className={styles ['article-blog']} >
             <div key={articlePost.id}>
-                <img src={images.url} alt={titleH1}/>
                 <h1>{titleH1}</h1>
-                <h2>{mainSubtitle}</h2>
+                <p>{mainSubtitle}</p>
+                <img src={images.url} alt={titleH1}/>
                 <p>{mainArticle}</p>
-                <h2>{titleH2}</h2>
+                <h3>{titleH2}</h3>
                 <p>{article02}</p>
                 <h3>{titleH3}</h3>
                 <p>{article03}</p>
-                <h3>{titleH4}</h3>
+                <h4>{titleH4}</h4>
                 <p>{article04}</p>
-                <h3>{titleH5}</h3>
+                <h5>{titleH5}</h5>
                 <p>{article05}</p>
                 <p>Geschreven door {author} op </p>
                 <p>⏰ {readTime} minuten leestijd</p>

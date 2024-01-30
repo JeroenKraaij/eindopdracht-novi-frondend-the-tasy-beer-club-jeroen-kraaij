@@ -1,10 +1,10 @@
 
-export default function OrderBox() {
+export default function ChooseOrderBox() {
 
     return (
         <>
             <div >
-                Kies je box...
+                Bestel je box...
             </div>
 
 

@@ -15,37 +15,164 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
 }
 
 /*////////////////////////
-    Color Style
+   Main Styles
 ////////////////////////*/
 
 :root {
-  --primary-dark-green: #2B4836;
-  --primary-light-green: #999E66;
-  --primary-light-brown: #BE8E66;
-  --primary-white: #FFFFFF;
-  --primary-black: #000000;
 
-  --secondary-light-yellow: #FFEFBC;
-  --secondary-orange: #ED8F45;
-  --secondary-pink: #E3A1AD;
+  /*////////////////////////
+   Colors
+  ////////////////////////*/
 
+  /* Primary Colors */
+  --clr-primary-dark-green: #2B4836;
+  --clr-primary-green: #999E66;
+  --clr-primary-licht-green: #E3E4D8;
+  --clr-primary-light-brown: #BE8E66;
+
+  /* Secondary Colors */
+  --crl-secondary-light-yellow: #FFEFBC;
+  --clr-secondary-orange: #ED8F45;
+  --crl-secondary-pink: #E3A1AD;
+
+  /* Grey Colors */
+  --clr-primary-white: #FFFFFF;
+  --clr-grey-50: #F2F2F2;
+  --clr-grey-100: #D9D9D9;
+  --clr-grey-300: #A6A6A6 ;
+  --clr-grey-500: #737373;
+  --clr-grey-800: #333333;
+  --clr-grey-900: #212121;
+  --clr-primary-black: #000000;
+
+  /* Accent Colors */
   --accent-color-1: #f7ff00;
   --accent-color-2: #e74c3c;
 
-  --background-color-1: #2B4836;
-  --background-color-2: #ffffff;
+  /* Background Colors */
+  --background-color-1: var(--clr-primary-dark-green);
+  --background-color-2: var(--clr-primary-licht-green);
+  --backgroudn-color-3: var(--clr-primary-green);
 
-  --text-color: #212121;
-  --header-text-color: #2B4836;
-  --menu-color:  #FFFFFF;
+  /* Text Colors */
+  --text-main-color: var(--clr-grey-900);
+  --text-header-color: var(--clr-primary-dark-green);
+  --text-menu-color:  var(--crl-secondary-light-yellow);
+  --text-menu-color-active: var(--crl-secondary-pink);
+  --text-button-color: var(--clr-primary-white);
 
-  --button-background-color: #f39c12;
-  --border-color: #333333;
+  /* Button Colors */
+  --button-background-color: var(--clr-secondary-orange);
+
+  /* Border Colors */
+  --border-color: var(--clr-grey-800);
+
+
+  /*////////////////////////
+      Fonts
+  ////////////////////////*/
+
+  /* Primary Font */
+  --font-family-primary: 'Noto Sans', sans-serif;
+
+  /* Font Sizes */
+
+  --font-size-text: 1rem;
+  --font-size-menu: 1rem;
+  --font-size-xxs: 1.25rem;
+  --font-size-xs: 1.375rem;
+  --font-size-s: 1.5rem;
+  --font-size-m: 1.75rem;
+  --font-size-l: 2rem;
+  --font-size-xxl: 2.75rem;
+  --font-size-xl: 1.375rem;
+
+  /* Font Weight */
+  --font-w-thin: 100;
+  --font-w-extraLicht: 200;
+  --font-weight-licht:300;
+  --font-w-regular: 400;
+  --font-w-medium: 500;
+  --font-w-semiBold: 600;
+  --font-w-bold: 700;
+  --font-w-extraBoldt: 800;
+  --font-w-black: 900;
+
+  /* Border Radius */
+  --border-rad-xs: 8px;
+  --border-rad-s: 16px;
+  --border-rad-m: 24px;
+  --border-rad-l: 32px;
+  --border-rad-xl: 48px;
+
+  /* Border  */
+  --border-primary-style: 1px solid var(--clr-grey-900);
 }
+
+/* Links  */
+a {
+  font-weight: var(--font-w-regular);
+  color: var(--accent-color-2);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--accent-color-1);
+}
+
+/* Main button  */
+
+button {
+  border-radius: var(--border-rad-xs);
+  border: var(--border-primary-style);
+  font-size: var(--font-size-text);
+  font-weight: var(--font-w-semiBold);
+  background-color: var(--button-background-color);
+  padding: 0.6em 1.2em;
+  font-family: inherit;
+  cursor: pointer;
+
+}
+button:hover {
+  border-color: #646cff;
+  background-color: darkseagreen;
+}
+button:focus,
+button:focus-visible {
+  outline: 10px auto -webkit-focus-ring-color;
+}
+
+/* Images  */
+img {
+  width: 100%;
+}
+
+/* Form fields */
+
+ label {
+  display: block;
+  margin: 15px auto;
+}
+ span {
+  display: block;
+  margin-bottom: 6px;
+
+}
+input {
+  padding: 8px 6px;
+  width: 100%;
+  font-size: 1em;
+}
+
+
+
+
 
 /*////////////////////////
     Typography
 ////////////////////////*/
+
+/* Font Faces */
 
 @font-face {
   font-family: 'Noto Sans', sans-serif;;
@@ -102,41 +229,45 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   font-style: normal;
 }
 
+/* H1 t/m H6 */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
-  color: var(--header-text-color);
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: bold;
+  color: var(--clr-primary-dark-green);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-w-bold);
   font-style: normal;
 }
 h1 {
-  font-size: 2.75rem;
+  font-size: var(--font-size-xxl)
 }
 
 h2 {
-  font-size: 2.375rem;
+  font-size: var(--font-size-xl)
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: var(--font-size-l)
 }
 
 h4 {
-  font-size: 1.75rem;
+  font-size: var(--font-size-m)
 }
 
 h5 {
-  font-size: 1.5rem;
+  font-size: var(--font-size-s)
 }
 
 h6 {
-  font-size: 1.125rem;
+  font-size: var(--font-size-xxs)
 }
 
+
+
+
+
 /*////////////////////////
-    Global Styles
+    Body
 ////////////////////////*/
-/* Mobile */
 
 body {
   /* Common */
@@ -144,60 +275,31 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  font-size: 1rem;
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: normal;
-  color: var(--text-color);
+  font-size: var(--font-size-text);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-w-regular);
+  color: var(--text-main-color);
+
+}
+
+/*////////////////////////
+    Main Media Setting
+////////////////////////*/
+
 
   /* Tablet */
   @media only screen and (min-width: 601px) and (max-width: 900px) {
-      background-color: var(--background-color-2);
 
 
   }
 
   /* Desktop  */
   @media only screen and (min-width: 901px) and (max-width: 1200px) {
-      background-color: var(--background-color-2);
+
 
   }
 
   /* Wide screen */
   @media only screen and (min-width: 1201px) {
-    background-color: var(--background-color-2);
 
   }
-
-}
-
-a {
-  font-weight: 500;
-  color: var(--accent-color-2);
-  text-decoration: inherit;
-}
-a:hover {
-  color: var(--accent-color-1);
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid #535bf2;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  background-color: var(--button-background-color);
-}
-button:hover {
-  border-color: #646cff;
-  background-color: darkseagreen;
-}
-button:focus,
-button:focus-visible {
-  outline: 10px auto -webkit-focus-ring-color;
-}
-
-img {
-  width: 100%;
-}

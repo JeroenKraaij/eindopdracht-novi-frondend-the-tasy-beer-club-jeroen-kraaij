@@ -1,0 +1,14 @@
+
+.signup-form {
+    max-width: 360px;
+    padding: 20px;
+
+}
+.signup-form label {
+    display: block;
+    margin: 15px auto;
+}
+
+.error-message{
+    color: #e74c3c;
+}

@@ -1,9 +1,8 @@
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
+import {useState} from "react";
 import Logo from '../../assets/svg/Logo Tasty Beer Club.svg';
 import ShoppingBasket from '../../assets/svg/Shoppingbasket.svg';
 import styles from './Header.module.css';
-import {useState} from "react";
-
 
 export default function Header() {
 
@@ -11,21 +10,18 @@ export default function Header() {
 
     return (
         <>
-                <div className={styles['logo-header']}>
-                <img src={Logo} alt="Logo" />
-                </div>
-                <nav className={styles['menu']}>
+            <img className={styles.brandlogo} src={Logo} alt="Logo" />
+            <nav className={styles.navbar}>
                     <div className={styles['hamburger-menu']}
                         onClick={() => {
-                        setHamburgerOpen(!hamburgerOpen)
+                        setHamburgerOpen(prev => !prev)
                             console.log(hamburgerOpen)
                     }} >
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
-
-                    <ul className={ hamburgerOpen ? 'open-hamburger' : '' }>
+                    <ul className={ hamburgerOpen ? styles['open-hamburger'] : styles['close-hamburger'] }>
                         <li>
                             <NavLink to="/" className={({ isActive}) => isActive === true ? 'active-link' : 'default-link'} >
                                 Home
@@ -62,11 +58,11 @@ export default function Header() {
                             </NavLink>
                         </li>
                     </ul>
-
                 </nav>
-                <div className={styles['shopping-basket']}>
-                <img src={ShoppingBasket} alt="Winkelmandje" />
-                </div>
+            <Link to={`/webshop/winkelmandje`}>
+                <img className={styles.shoppingbasket} src={ShoppingBasket} alt="Winkelmandje" />
+            </Link>
+
         </>
     );
 }
