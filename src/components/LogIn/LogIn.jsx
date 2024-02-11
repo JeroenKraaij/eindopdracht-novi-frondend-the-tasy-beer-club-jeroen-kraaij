@@ -1,15 +1,16 @@
 
-import styles from "./LoginForm.module.css";
-import {useState} from "react";
+import styles from "./LogIn.module.css";
+import { useState } from "react";
+import { userLogin } from "../../hooks/userLogin.js";
 
-
-export default function LoginForm () {
+export default function LogIn () {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const {error, login} = userLogin()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(email, password)
+        login(email, password)
 
     }
 
@@ -31,6 +32,7 @@ export default function LoginForm () {
                 />
                 <button className='button'>Inloggen</button>
             </label>
+            {error && <p>{error}</p>}
         </form>
     )
 

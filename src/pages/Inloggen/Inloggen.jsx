@@ -1,5 +1,5 @@
 import styles from './Inloggen.module.css';
-import LoginForm from "../../components/LoginForm/LoginForm.jsx";
+import LogIn from "../../components/LogIn/LogIn.jsx";
 
 export default function Inloggen () {
 
@@ -8,7 +8,7 @@ export default function Inloggen () {
         <>
             <article>
                 <h1>Inloggen op je account</h1>
-                <LoginForm/>
+                <LogIn/>
             </article>
 
         </>

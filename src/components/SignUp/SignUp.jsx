@@ -1,12 +1,14 @@
 import styles from "./SignUp.module.css";
 import { useState } from "react";
+import { useSignUp} from "../../hooks/useSignUp.js";
 
 export default function SignUp() {
+    const { error, signUp } = useSignUp()
     const [displayName, setDisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [streetAndNumber, setStreetAndNumber] = useState('');
-    const [zippCode, setZippCode] = useState('');
+    const [zipCode, setZipCode] = useState('');
     const [city, setCity] = useState('');
     const [deliveryDate, setDeliveryDate] = useState('');
     const [acceptedTerms, setAcceptedTerms] = useState(false);
@@ -14,18 +16,19 @@ export default function SignUp() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        signUp(email, password)
 
         if (!acceptedTerms) {
             setFormError("Sorry je moet de algemene voorwaarden accepteren.");
             return;
         }
 
-        if (!displayName || !email || !streetAndNumber || !zippCode || !city) {
+        if (!displayName || !email || !streetAndNumber || !zipCode || !city) {
             setFormError("Vul de verplichte velden in");
             return;
         }
 
-        console.log(displayName, email, password, streetAndNumber, zippCode, city, deliveryDate);
+        console.log(displayName, email, password, streetAndNumber, zipCode, city, deliveryDate);
         setFormError('');
     };
 
@@ -42,6 +45,7 @@ export default function SignUp() {
                     required
                 />
             </label>
+            <div>Maak account aan:</div>
             <label>
                 <span>e-mail *:</span>
                 <input
@@ -51,9 +55,9 @@ export default function SignUp() {
                     required
                 />
             </label>
-            <div>Maak account aan:</div>
+
             <label>
-                <span>Kies wachtwoord:</span>
+                <span>Wachtwoord *:</span>
                 <input
                     type='password'
                     onChange={(e) => setPassword(e.target.value)}
@@ -67,16 +71,16 @@ export default function SignUp() {
                     type='text'
                     onChange={(e) => setStreetAndNumber(e.target.value)}
                     value={streetAndNumber}
-                    required
+
                 />
             </label>
             <label>
                 <span>Postcode *:</span>
                 <input
                     type='text'
-                    onChange={(e) => setZippCode(e.target.value)}
-                    value={zippCode}
-                    required
+                    onChange={(e) => setZipCode(e.target.value)}
+                    value={zipCode}
+
                 />
             </label>
             <label>
@@ -85,7 +89,7 @@ export default function SignUp() {
                     type='text'
                     onChange={(e) => setCity(e.target.value)}
                     value={city}
-                    required
+
                 />
             </label>
             <div>Wanneer wil je het pakket geleverd hebben?:</div>
@@ -109,6 +113,7 @@ export default function SignUp() {
             <button className='button' type='submit' disabled={!acceptedTerms}>
                 Registreren
             </button>
+            {error && <p>{error}</p>}
         </form>
     );
 }

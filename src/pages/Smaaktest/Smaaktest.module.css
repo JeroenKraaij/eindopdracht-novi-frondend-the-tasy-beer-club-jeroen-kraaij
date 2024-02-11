@@ -1,8 +1,23 @@
 .choose-taste {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: start;
+    flex-shrink: 2;
+    padding:2%;
+    min-height: 1200px;
+}
+
+.main-taste-comp {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 2;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 10px;
+
+
 }
 
 .taste-button {

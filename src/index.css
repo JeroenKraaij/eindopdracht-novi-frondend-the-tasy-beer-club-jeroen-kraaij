@@ -66,6 +66,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
 
   /* Border Colors */
   --border-color: var(--clr-grey-800);
+  --border-color-green: var(--clr-primary-green);
 
 
   /*////////////////////////
@@ -149,7 +150,7 @@ img {
 
 /* Form fields */
 
- label {
+label {
   display: block;
   margin: 15px auto;
 }

@@ -62,7 +62,7 @@ Gisteren toch nog verder gewerkt aan dit leuke project. Ik was benieuwd of ik al
 De sectie voor de bieren heb ik via de API in een overzicht weten te krijgen. Ik heb hiervoor gebruik gemaakt van de Asynch functie en de Get.axios succesvol uitgevoerd op de url van de API. 
 
 1. De bieren zijn nu zichtbaar op de pagina Webshop
-2. De bieren worden via het component "ProductArticle" getoond
+2. De bieren worden via het component "ProductCard" getoond
 3. CSS is aangemaakt maar ik heb nog een probleem met de Flex-wrap. Deze werkt nog niet goed en de bieren staan nu nog onder elkaar
 4. Een andere sectie toegevoegd, namelijk doe van de blogs. 
 5. De blogs zijn zelf geschreven content die ik een een Json bestand heb gezet. Het is niet een zeer belangrijk onderdeel van de functionaliteit maar geeft extra informatie. 

@@ -1,0 +1,48 @@
+
+.taste-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1 ;
+}
+
+.taste-statusbar {
+    display: flex;
+    width: 40%;
+    height: 35px;
+    background-color: var(--clr-grey-50);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: var(--border-rad-l);
+    font-weight: var(--font-w-medium);
+    margin: 20px 0;
+
+}
+
+.main-choose-image {
+    height: 350px;
+    width: 350px;
+    border-radius: var(--border-rad-m);
+    margin: 10px auto;
+
+}
+
+.btn-taste-test {
+    height: 80px;
+    width: 80px;
+    margin: 15px;
+    background-color: var(--clr-primary-white);
+    border-radius: var(--border-rad-xl);
+    border: 1px solid var(--clr-grey-100);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    font-size: var(--font-size-s);
+    text-align: center;
+}
+.btn-taste-test:hover {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 25%);
+    background-color: var(--clr-primary-white);
+    border: 1px solid var(--clr-grey-100);
+
+}

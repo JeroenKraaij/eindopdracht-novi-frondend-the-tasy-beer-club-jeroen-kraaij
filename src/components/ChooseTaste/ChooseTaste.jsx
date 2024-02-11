@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
-import styles from './ChooseTase.module.css';
+import {useEffect, useState} from 'react';
+import styles from './ChooseTaste.module.css';
 import Banaan from '../../assets/images/Tasty Beer Club Smaaktest image banaan.webp';
 import Caramel from '../../assets/images/Tasty Beer Club Smaaktest image caramel.webp';
 import Chocola from '../../assets/svg/Chocola.svg';
@@ -11,46 +9,18 @@ import Coffee from '../../assets/images/Tasty Beer Club Smaaktest image koffie.w
 import Nuts from '../../assets/images/Tasty Beer Club Smaaktest image noten.webp';
 import Prunes from '../../assets/svg/Pruimen.svg';
 import Sushi from '../../assets/svg/Sushi.svg';
+import { barResults } from '../../helpers/statusBarResults.js';
 
-export default function ChooseTaste() {
-    const [currentImages, setCurrentImages] = useState(0);
-    const [categoryCounts, setCategoryCounts] = useState({});
-    const [currentCategory, setCurrentCategory] = useState('');
+export default function ChooseTaste({ testResults,setCategoryCounts, categoryCounts }) {
+    const [images, setImages] = useState(0);
     const [buttonDisabled, setButtonDisabled] = useState(true);
+    const [likedFlavours, setLikedFlavours] = useState([]);
+    const [dislikedFlavours, setDislikedFlavours] = useState([]);
 
     const imageUrls = [Banaan, Caramel, Chocola, Citrus, Cinnamon, Coffee, Nuts, Prunes, Sushi];
+    const categories = ['Banana', 'Caramel', 'Chocola', 'Citrus', 'Cinnamon', 'Coffee', 'Nuts', 'Prunes', 'Sushi'];
 
-    const categories = [
-        'Fris en licht bier',
-        'Fruit en kruidig bier',
-        'Bitter en hop-gedomineerd bier',
-        'Zoet en mout-gedomineerd bier',
-        'Donker, zoet en zwaar bier',
-        'Deze smaak vind je niet lekker',
-    ];
-
-    const updateCategory = (index) => {
-        const selectedCategory = (() => {
-            switch (index) {
-                case Banaan:
-                case Caramel:
-                case Nuts:
-                    return categories[0];
-                case Chocola:
-                case Citrus:
-                case Cinnamon:
-                    return categories[1];
-                case Coffee:
-                case Prunes:
-                    return categories[3];
-                case Sushi:
-                    return categories[4];
-                default:
-                    return categories[5];
-            }
-        })();
-
-        setCurrentCategory(selectedCategory); // Set the current category
+    const updateCategory = (selectedCategory) => {
         setCategoryCounts((prevCounts) => ({
             ...prevCounts,
             [selectedCategory]: (prevCounts[selectedCategory] || 0) + 1,
@@ -58,52 +28,40 @@ export default function ChooseTaste() {
 
         if (selectedCategory === categories[5] && buttonDisabled) {
             setButtonDisabled(false);
-            console.log(buttonDisabled);
         }
     };
 
     const handleButtonClick = (isUp) => {
-        const currentImage = imageUrls[currentImages];
+        const currentCategory = categories[images];
 
         if (isUp) {
-            updateCategory(currentImage);
+            setLikedFlavours([...likedFlavours, currentCategory]);
+            updateCategory(currentCategory);
         } else {
+            setDislikedFlavours([...dislikedFlavours, currentCategory]);
             updateCategory(categories[5]);
         }
-        setCurrentImages(currentImages + 1);
+        setImages(images + 1);
+        testResults(likedFlavours, dislikedFlavours);
     };
 
-    useEffect(() => {
-        const apiUrl = '${process.env.PUBLIC_URL}/constants/tasteResults.json';
-        const results = {
-            currentCategory,
-            counts: categoryCounts,
-            timestamp: new Date().toISOString(),
-        };
-
-        axios.post(apiUrl, results)
-            .then(response => {
-                console.log('Results sent successfully:', response.data);
-            })
-            .catch(error => {
-                console.error('Error sending results:', error.message);
-            });
-    }, [currentCategory, categoryCounts]);
+    const statusBarResults = barResults(categoryCounts);
 
     return (
         <>
+            <h1>Doe de smaaktest</h1>
             <div className={styles['taste-statusbar']}>
-                Statusbar: {Object.values(categoryCounts).reduce((sum, count) => sum + count, 0)} choices
+                Statusbar: {statusBarResults} van 12 keuzes
             </div>
-            <div className={styles['main-choose-taste']}>
+            <div className={styles['taste-component']}>
                 <img
                     className={styles['main-choose-image']}
-                    src={imageUrls[currentImages]}
-                    alt={`Image ${currentImages + 1}`}
+                    src={imageUrls[images]}
+                    alt={`Image ${images + 1}`}
                 />
                 <div>
-                    <button onClick={() => handleButtonClick(true)}>👍🏼</button>
-                    <button onClick={() => handleButtonClick(false)}>👎🏼</button>
+                    <button className={styles['btn-taste-test']} onClick={() => handleButtonClick(true)}>👍🏼</button>
+                    <button className={styles['btn-taste-test']} onClick={() => handleButtonClick(false)}>👎🏼</button>
                 </div>
             </div>
         </>
