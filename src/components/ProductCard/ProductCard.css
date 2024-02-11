@@ -3,9 +3,7 @@
 .product-card {
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: center;
-    row-gap: 30px;
     margin-top: 20px;
     padding: 50px 20px;
     border: 1px solid var(--border-color);

@@ -3,9 +3,11 @@ import {useState} from "react";
 import Logo from '../../assets/svg/Logo Tasty Beer Club.svg';
 import ShoppingBasket from '../../assets/svg/Shoppingbasket.svg';
 import styles from './Header.module.css';
+import { userLogout } from "../../hooks/userLogout.js";
 
 export default function Header() {
 
+    const { logout } = userLogout()
     const [hamburgerOpen, setHamburgerOpen] =useState(false)
 
     return (
@@ -56,6 +58,9 @@ export default function Header() {
                             <NavLink to="/inloggen" className={({ isActive}) => isActive === true ? 'active-link' : 'default-link'} >
                                 Inloggen
                             </NavLink>
+                        </li>
+                        <li onClick={logout}>
+                            Uitloggen
                         </li>
                     </ul>
                 </nav>
