@@ -5,9 +5,9 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    padding: 50px 20px;
-    border: 1px solid var(--border-color);
-    background-color: var(--background-color-2);
+    padding: 20px 20px;
+
+
 }
 
 .product-card h2 {
@@ -16,8 +16,13 @@
     text-align: center;
 }
 .product-card-image {
-    width: 150px;
-    height: 450px;
+    display: flex;
+    padding: 50px 50px;
+    width: 200px;
+    height: 600px;
+    border: 1px solid var(--border-color-grey);
+    background-color: var(--clr-grey-50)
+
 }
 .product-card-description {
     text-align: center;
