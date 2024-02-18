@@ -1,0 +1,49 @@
+.article-checkout {
+    display: flex;
+    width: 100%;
+}
+
+.login-view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 450px;
+}
+
+.subscription {
+    width: 100%;
+}
+.login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color-grey);
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.accordionBtn {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    width: 20%;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.accordionContent {
+    overflow: hidden;
+}
+
+.accordionContent > * {
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+
+
+}
+
+.accordionContent > *:last-child {
+    margin-bottom: 0;
+}

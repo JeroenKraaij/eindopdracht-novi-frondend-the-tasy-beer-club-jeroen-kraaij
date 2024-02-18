@@ -1,13 +1,13 @@
 import {Link, NavLink} from 'react-router-dom';
 import {useState} from "react";
+import { useAuthContext } from "../../hooks/UseAuthContext.js";
 import Logo from '../../assets/svg/Logo Tasty Beer Club.svg';
 import ShoppingBasket from '../../assets/svg/Shoppingbasket.svg';
 import styles from './Header.module.css';
-import { userLogout } from "../../hooks/userLogout.js";
 
 export default function Header() {
 
-    const { logout } = userLogout()
+    const { user, authIsReady } = useAuthContext()
     const [hamburgerOpen, setHamburgerOpen] =useState(false)
 
     return (
@@ -54,18 +54,24 @@ export default function Header() {
                                 Contact
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/inloggen" className={({ isActive}) => isActive === true ? 'active-link' : 'default-link'} >
-                                Inloggen
-                            </NavLink>
-                        </li>
-                        <li onClick={logout}>
-                            Uitloggen
-                        </li>
+                        {authIsReady && (
+                        <>
+                            <li>{!user && (
+                                <NavLink to="/inloggen" className={({ isActive}) => isActive === true ? 'active-link' : 'default-link'} >
+                                    Inloggen
+                                </NavLink>)}
+                            </li>
+
+                            <li>{user && (
+                                <NavLink to="/account" className={({ isActive}) => isActive === true ? 'active-link' : 'default-link'} >
+                                    Account
+                                </NavLink>)}
+                            </li>
+                        </> )}
                     </ul>
                 </nav>
             <Link to={`/webshop/winkelmandje`}>
-                <img className={styles.shoppingbasket} src={ShoppingBasket} alt="Winkelmandje" />
+                <img className={styles.shoppingBasket} src={ShoppingBasket} alt="Winkelmandje" />
             </Link>
 
         </>

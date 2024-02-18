@@ -1,0 +1,23 @@
+.quantityCounter {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.quantityCounter button {
+        font-size: var(--font-size-m);
+        width: 40px;
+        height: 40px;
+        border-radius: var(--border-rad-xl);
+        border: 1px solid transparent;
+        background-color: var(--background-color-2);
+}
+
+.quantityCounter button:hover {
+    background-color: var(--background-color-1);
+
+}
+
+.quantityCounter span {
+    font-size: var(--font-size-s);
+}

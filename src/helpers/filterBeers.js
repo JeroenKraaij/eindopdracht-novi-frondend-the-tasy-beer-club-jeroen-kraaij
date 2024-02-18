@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
-import { fetchBeerData } from '../api/fetchBeerData.js';
+import { useFetchBeerData } from '../api/useFetchBeerData.js';
 
-export const useFilterBeers = (likedFlavour) => {
-    const { beers: allBeers, isLoading, error } = fetchBeerData();
+export const useFilterBeers = (likedFlavours) => {
+    const { beers: allFetchedBeers, isLoading, error } = useFetchBeerData();
     const [filteredData, setFilteredData] = useState([]);
-    console.log(likedFlavour)
+
     useEffect(() => {
-        if (!isLoading && !error && likedFlavour) {
-            const resultArrays = likedFlavour.map((word) => {
-                return allBeers
+        if (!isLoading && !error && likedFlavours && allFetchedBeers) {
+            const resultArrays = likedFlavours.map((word) => {
+                return allFetchedBeers
                     .filter((beer) => beer.description.toLowerCase().includes(word.toLowerCase()))
                     .map(({ id, description, image_url }) => ({ id, description, image_url, word }));
             });
 
             setFilteredData(resultArrays);
         }
-    }, [allBeers, isLoading, error, likedFlavour]);
+    }, [allFetchedBeers, likedFlavours, error]);
+    return { filteredData };
 
-    return { filteredData, targetWords: likedFlavour };
 };

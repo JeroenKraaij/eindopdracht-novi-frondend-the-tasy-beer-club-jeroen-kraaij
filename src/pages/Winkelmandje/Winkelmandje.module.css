@@ -1,10 +1,8 @@
-
-.product-view {
+.article-winkelmandje{
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
     min-height: 450px;
-    border-bottom: 1px solid var(--clr-grey-800);
 }
 
 table {
@@ -52,21 +50,4 @@ td.productThumbnail img {
 
 td.subtotal {
     font-weight: bold;
-}
-
-
-
-
-
-.login-view {
-    display: flex;
-
-}
-.subscription {
-    width: 50%;
-
-}
-.login {
-    width: 50%;
-
 }

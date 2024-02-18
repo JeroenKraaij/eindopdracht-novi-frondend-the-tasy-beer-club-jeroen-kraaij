@@ -1,22 +1,21 @@
-
-
-
 .login-form {
-    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
     padding: 20px;
-
 }
+
 .login-form label {
     display: block;
-    margin: 30px auto;
+    width: 100%;
 }
+
 .login-form span {
     display: block;
     margin-bottom: 6px;
-
 }
+
 .login-form input {
     padding: 8px 6px;
-    width: 100%;
     font-size: 1em;
 }

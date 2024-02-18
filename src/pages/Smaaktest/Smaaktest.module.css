@@ -5,7 +5,7 @@
     justify-content: start;
     flex-shrink: 2;
     padding:2%;
-    min-height: 1200px;
+    min-height: 600px;
 }
 
 .main-taste-comp {
@@ -15,9 +15,6 @@
     justify-content: center;
     width: 100%;
     align-items: center;
-    margin-bottom: 10px;
-
-
 }
 
 .taste-button {
@@ -27,5 +24,4 @@
     text-transform: uppercase;
     font-weight: var(--font-w-black);
     font-size: 1rem;
-
 }

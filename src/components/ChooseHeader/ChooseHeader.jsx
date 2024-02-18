@@ -11,7 +11,7 @@ export default function ChooseHeader( {activeStep } ) {
                 </label>
                 <label
                     className={activeStep === 'KiesJeBox' ? styles['label-header-active'] : styles['label-header-default']}
-                    >2. Kies je Box
+                    >2. Stel je box samen
                 </label>
             </div>
         </>

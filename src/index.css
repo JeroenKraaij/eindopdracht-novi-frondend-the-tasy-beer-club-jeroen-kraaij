@@ -59,7 +59,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   --text-header-color: var(--clr-primary-dark-green);
   --text-menu-color:  var(--crl-secondary-light-yellow);
   --text-menu-color-active: var(--crl-secondary-pink);
-  --text-button-color: var(--clr-primary-white);
+  --text-button-color: var(--clr-primary-dark-green);
 
   /* Button Colors */
   --button-background-color: var(--clr-secondary-orange);
@@ -67,6 +67,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   /* Border Colors */
   --border-color: var(--clr-grey-800);
   --border-color-green: var(--clr-primary-green);
+  --border-color-grey: var(--clr-grey-100);
 
 
   /*////////////////////////
@@ -122,21 +123,38 @@ a:hover {
 }
 
 /* Main button  */
+/*button {*/
+/*  border-radius: var(--border-rad-m);*/
+/*  border: 1px solid transparent;*/
+/*  font-size: var(--font-size-text);*/
+/*  font-weight: var(--font-w-semiBold);*/
+/*  color: var(--text-button-color);*/
+/*  background-color: var(--button-background-color);*/
+/*  padding: 10px 50px;*/
+/*  margin: 10px 0;*/
+/*  font-family: inherit;*/
+/*  cursor: pointer;*/
+/*  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);*/
 
-button {
-  border-radius: var(--border-rad-xs);
-  border: var(--border-primary-style);
+/*}*/
+.button-nav {
+  border-radius: var(--border-rad-m);
+  border: 1px solid transparent;
   font-size: var(--font-size-text);
   font-weight: var(--font-w-semiBold);
+  color: var(--text-button-color);
   background-color: var(--button-background-color);
-  padding: 0.6em 1.2em;
+  padding: 10px 50px;
+  margin: 10px 0;
   font-family: inherit;
   cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
 }
+
 button:hover {
-  border-color: #646cff;
   background-color: darkseagreen;
+  color: var(--clr-primary-white);
 }
 button:focus,
 button:focus-visible {
@@ -164,10 +182,6 @@ input {
   width: 100%;
   font-size: 1em;
 }
-
-
-
-
 
 /*////////////////////////
     Typography

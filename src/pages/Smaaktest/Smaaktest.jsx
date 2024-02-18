@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styles from './Smaaktest.module.css';
 import ChooseTaste from "../../components/ChooseTaste/ChooseTaste.jsx";
 import ChooseBox from "../../components/ChooseBox/ChooseBox.jsx";
@@ -10,7 +10,7 @@ export default function Smaaktest() {
     const [likeCategory, setLikeCategory] = useState([]);
     const [DislikeCategory, setDislikeCategory] = useState([]);
     const [categoryCounts, setCategoryCounts] = useState({});
-    console.log(categoryCounts)
+
 
     const order = ["Smaaktest", "KiesJeBox"];
     const handleTasteTestResultChange = (likeCategories, dislikeCategories) => {
@@ -18,40 +18,42 @@ export default function Smaaktest() {
         setDislikeCategory(dislikeCategories);
     };
     const handleStepChange = () => {
-         const currentIndex = order.indexOf(step);
+        const currentIndex = order.indexOf(step);
         const nextIndex = (currentIndex + 1) % order.length;
         setStep(order[nextIndex]);
     };
 
+    useEffect(() => {
+        console.log("categoryCounts", categoryCounts)
+    }, [categoryCounts]);
     return (
         <article className={styles['choose-taste']}>
             <div className={styles ['main-taste-comp']}>
                 {step === "Smaaktest" && (
                     <>
-                    <div className={styles['header.comp']}><ChooseHeader activeStep='Smaaktest'  /></div>
+                        <ChooseHeader activeStep='Smaaktest'  />
                         <ChooseTaste
                             categoryCounts={categoryCounts}
                             setCategoryCounts={setCategoryCounts}
                             testResults={handleTasteTestResultChange}
                             upDateLikeCategory={likeCategory}
-                            upDateDislikeCategory={DislikeCategory}/>
+                            upDateDislikeCategory={DislikeCategory}
+                            handleStepChange={handleStepChange}
+                            step={step}
+                        />
                     </>
                 )}
-
             </div>
             <div className={styles ['main-taste-comp']}>
                 {step === "KiesJeBox" && (
                     <>
-                    <div className={styles['header.comp']}><ChooseHeader activeStep='KiesJeBox' /></div>
+                        <div className={styles['header.comp']}><ChooseHeader activeStep='KiesJeBox' /></div>
                         <ChooseBox
-                        likedflavor={likeCategory}/>
+                        likedFlavour={likeCategory}
+                        />
                     </>
                 )}
             </div>
-
-            <button className={styles['taste-button']} onClick={handleStepChange}>
-                {step === "Smaaktest" ? "Kies je Box" : <Link to={`/webshop/winkelmandje`}>Bestellen</Link>}
-            </button>
         </article>
     );
 }

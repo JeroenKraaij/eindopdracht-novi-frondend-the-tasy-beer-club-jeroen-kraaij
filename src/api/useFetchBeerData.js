@@ -5,8 +5,6 @@ export const useFetchBeerData = () => {
     const [fetchData, setFetchData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
-    const [searchQuery, setSearchQuery] = useState('');
-    const [pageNumber, setPageNumber] = useState(1); // Added pagination support
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -15,14 +13,7 @@ export const useFetchBeerData = () => {
             try {
                 setIsLoading(true);
 
-                let endpoint = `https://api.punkapi.com/v2/beers?page=${pageNumber}&per_page=80`;
-                if (searchQuery) {
-                    endpoint += `&beer_name=${searchQuery}`;
-                }
-
-                const response = await axios.get(endpoint, {
-                    signal: abortController.signal,
-                });
+                const response = await axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=80`);
 
                 setFetchData(response.data);
             } catch (error) {
@@ -33,12 +24,12 @@ export const useFetchBeerData = () => {
             }
         }
 
-        const delayTimer = setTimeout(fetchBeers, 300); // Debouncing input
+        fetchBeers(); // No dependencies, fetch data on component mount
+
         return () => {
-            clearTimeout(delayTimer);
             abortController.abort();
         };
-    }, [searchQuery, pageNumber]); // Added pageNumber dependency
+    }, []); // Empty dependency array, runs once on component mount
 
-    return { beers: fetchData, isLoading, error, searchQuery, setSearchQuery, setPageNumber };
+    return { beers: fetchData, isLoading, error };
 }

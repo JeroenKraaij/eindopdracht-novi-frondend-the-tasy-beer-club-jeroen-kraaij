@@ -1,67 +1,37 @@
-import {useEffect, useState} from 'react';
 import styles from './ChooseTaste.module.css';
-import Banaan from '../../assets/images/Tasty Beer Club Smaaktest image banaan.webp';
-import Caramel from '../../assets/images/Tasty Beer Club Smaaktest image caramel.webp';
-import Chocola from '../../assets/svg/Chocola.svg';
-import Citrus from '../../assets/images/Tasty Beer Club Smaaktest image citrus.webp';
-import Cinnamon from '../../assets/images/Tasty Beer Club Smaaktest image kaneel.webp';
-import Coffee from '../../assets/images/Tasty Beer Club Smaaktest image koffie.webp';
-import Nuts from '../../assets/images/Tasty Beer Club Smaaktest image noten.webp';
-import Prunes from '../../assets/svg/Pruimen.svg';
-import Sushi from '../../assets/svg/Sushi.svg';
-import { barResults } from '../../helpers/statusBarResults.js';
+import {UseBeerTest} from '../../hooks/UseBeerTest.js';
+import {Link} from "react-router-dom";
 
-export default function ChooseTaste({ testResults,setCategoryCounts, categoryCounts }) {
-    const [images, setImages] = useState(0);
-    const [buttonDisabled, setButtonDisabled] = useState(true);
-    const [likedFlavours, setLikedFlavours] = useState([]);
-    const [dislikedFlavours, setDislikedFlavours] = useState([]);
-
-    const imageUrls = [Banaan, Caramel, Chocola, Citrus, Cinnamon, Coffee, Nuts, Prunes, Sushi];
-    const categories = ['Banana', 'Caramel', 'Chocola', 'Citrus', 'Cinnamon', 'Coffee', 'Nuts', 'Prunes', 'Sushi'];
-
-    const updateCategory = (selectedCategory) => {
-        setCategoryCounts((prevCounts) => ({
-            ...prevCounts,
-            [selectedCategory]: (prevCounts[selectedCategory] || 0) + 1,
-        }));
-
-        if (selectedCategory === categories[5] && buttonDisabled) {
-            setButtonDisabled(false);
-        }
-    };
-
-    const handleButtonClick = (isUp) => {
-        const currentCategory = categories[images];
-
-        if (isUp) {
-            setLikedFlavours([...likedFlavours, currentCategory]);
-            updateCategory(currentCategory);
-        } else {
-            setDislikedFlavours([...dislikedFlavours, currentCategory]);
-            updateCategory(categories[5]);
-        }
-        setImages(images + 1);
-        testResults(likedFlavours, dislikedFlavours);
-    };
-
-    const statusBarResults = barResults(categoryCounts);
+export default function ChooseTaste({ testResults, setCategoryCounts, statusBarResults, handleStepChange, step }) {
+    const { images, imageUrls,
+        handleButtonClick } = UseBeerTest(testResults, setCategoryCounts, statusBarResults);
 
     return (
         <>
-            <h1>Doe de smaaktest</h1>
             <div className={styles['taste-statusbar']}>
-                Statusbar: {statusBarResults} van 12 keuzes
+                {images < imageUrls.length ? <p>Keuze {images + 1} van 12</p> : <p>Statusbar: 12 van 12 keuzes</p>}
             </div>
             <div className={styles['taste-component']}>
-                <img
-                    className={styles['main-choose-image']}
-                    src={imageUrls[images]}
-                    alt={`Image ${images + 1}`}
-                />
+                {images < imageUrls.length ?
+                    <img
+                        className={styles['main-choose-image']}
+                        src={imageUrls[images]}
+                        alt={`Image ${images + 1}`}
+                    />
+                    :
+                    <p>test geslaagd</p>
+                }
                 <div>
-                    <button className={styles['btn-taste-test']} onClick={() => handleButtonClick(true)}>👍🏼</button>
-                    <button className={styles['btn-taste-test']} onClick={() => handleButtonClick(false)}>👎🏼</button>
+                    {images === imageUrls.length  ?
+                        <button className={styles['taste-button']} onClick={handleStepChange}>
+                            {step === "Smaaktest" ? "Kies je Box" : <Link to={`/webshop/winkelmandje`}>Bestellen</Link>}
+                        </button>
+                        :
+                        <>
+                            <button className={styles['btn-taste-test']} onClick={() => handleButtonClick(true)}>👍🏼</button>
+                            <button className={styles['btn-taste-test']} onClick={() => handleButtonClick(false)}>🫶🏼</button>
+                        </>
+                    }
                 </div>
             </div>
         </>

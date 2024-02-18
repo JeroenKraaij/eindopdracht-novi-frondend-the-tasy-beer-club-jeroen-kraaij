@@ -1,11 +1,11 @@
-import styles from "./BillingDetails.module.css";
+import styles from "./InvoiceDetails.module.css";
 import { useBillingDetails } from "../../hooks/userBillingDetails.js";
 
-export default function BillingDetails() {
+export default function InvoiceDetails() {
     const {
         displayName, setDisplayName, streetAndNumber, setStreetAndNumber, zipCode, setZipCode,
         city, setCity, deliveryDate, setDeliveryDate, acceptedTerms, setAcceptedTerms, formError, handleSubmit
-    } = useBillingDetailsForm();
+    } = useBillingDetails();
 
     return (
         <form onSubmit={handleSubmit} className={styles['signup-form']}>
