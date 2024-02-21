@@ -1,4 +1,6 @@
 import styles from './Footer.module.css';
+import FooterImg from "../../assets/images/The Beer Taste Club footer image.webp"
+
 
 
 export default function Footer() {
@@ -7,7 +9,9 @@ export default function Footer() {
     return (
         <>
                 <div className={styles ["main-footer-content"]} >
-                    Hello, I'm a Footer
+                    <div className={styles ["footer-content"]}>
+                        Hello, I'm a Footer
+                    </div>
                 </div>
                 <div className={styles ["main-footer-credits"]} >
                     Alle rechten voorbehouden | Tasty Beer Club {currentYear}

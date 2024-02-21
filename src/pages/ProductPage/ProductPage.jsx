@@ -1,51 +1,73 @@
-import React, {useEffect, useState} from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 import styles from './ProductPage.module.css';
-import { useSelectedBeer } from '../../context/SelectedBeerContext.jsx';
-import {fetchBeerData} from "../../api/fetchBeerData.js";
+import { useProductPage } from '../../hooks/useProductPage.js';
+import { findBeerColor } from "../../helpers/findBeerColor.js";
+import Buttons from "../../components/Buttons/Buttons.jsx";
 
 export default function ProductPage() {
     const { id } = useParams();
-    const { beers, isLoading, error } = fetchBeerData();
-    const { setSelectedBeerId } = useSelectedBeer();
-    const [beerProduct, setBeerProduct] = useState(null);
+    const { beerProduct, isLoading, error, setSelectedBeerProduct } = useProductPage(id);
+    const navigate = useNavigate()
 
-    useEffect(() => {
-        if (!isLoading) {
-            const selectedBeer = beers.find(beer => beer.id === parseInt(id));
-            setBeerProduct(selectedBeer);
+    const handleOrderProduct = (e) => {
+        e.preventDefault()
+        if (beerProduct) {
+            setSelectedBeerProduct(beerProduct);
+            navigate('/webshop/winkelmandje')
+        } else {
+            console.log("No beer product selected.");
         }
-    }, [beers, isLoading, id]);
+    };
 
     if (isLoading) {
         return <div>Loading...</div>;
     }
-
     if (error) {
         return <div>Error: {error}</div>;
     }
-
     if (!beerProduct) {
         return <div>Product not found</div>;
     }
 
-    const handleOrderProduct = () => {
-        setSelectedBeerId(beerProduct.id);
-    };
+    const beerColorStyle = findBeerColor(beerProduct.srm);
+    const sortedFoodPairing = beerProduct.food_pairing.sort();
 
     return (
-        <>
-            <div className={styles.productPage}>
-                <img src={beerProduct.image_url} alt={beerProduct.name}/>
-                <p>{beerProduct.name}</p>
-                <p>{beerProduct.description}</p>
-               <Link to={`/webshop/winkelmandje`} >
-                   <button onClick={handleOrderProduct}>Order product</button>
-               </Link>
+        <article className={styles["article-product-page"]}>
+            <div className="breadcrumb">
+                <Link to="/webshop"><p>← Terug naar Webshop</p></Link>
             </div>
-            <Link to="/webshop">
-                <button>Terug naar Webshop</button>
-            </Link>
-        </>
+            <section className={styles["content-product-page"]}>
+                <figure className={styles["image-box"]}>
+                    <img className={styles["product-image"]} src={beerProduct.image_url} alt={beerProduct.name}/>
+                </figure>
+                <div className={styles["content-box"]}>
+                    <h1>{beerProduct.name}</h1>
+                    <p className={styles.tagline}>{beerProduct.tagline}</p>
+                    <p><strong>{beerProduct.abv}%</strong></p>
+                    <h2>Omschrijving - {beerProduct.name}</h2>
+                    <p>{beerProduct.description}</p>
+                    <h3>Biercategorie:</h3>
+                    <p>{beerColorStyle.description}</p>
+                    <div className={styles["beer-color"]}>
+                        <h3>Kleur van het bier:</h3>
+                        <p className={`${styles.circle} ${styles[beerColorStyle.className]}`}></p>
+                    </div>
+                    <h3>Smaakt goed bij:</h3>
+                    <ul>
+                        {sortedFoodPairing.map((food, index) => (
+                            <li key={index}>{food}</li>
+                        ))}
+                    </ul>
+                    <div className={styles["order-beer-buttons"]}>
+                            <Buttons
+                                className={styles["button-order-product"]}
+                                handleButtonClick={(e) => handleOrderProduct(e)}
+                                buttonName={"Bestellen"}
+                            />
+                    </div>
+                </div>
+            </section>
+        </article>
     );
 }

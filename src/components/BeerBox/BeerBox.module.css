@@ -1,0 +1,28 @@
+.order-beer-box-select {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid var(--border-color-grey);
+    border-bottom: 1px solid var(--border-color-grey);
+    padding: 10px 0;
+    margin-top: 15px;
+}
+
+.order-beer-box {
+    display: flex;
+}
+
+.beer-list {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+
+}
+
+.beer-item-image {
+    width: 30px;
+    height: 90px;
+}

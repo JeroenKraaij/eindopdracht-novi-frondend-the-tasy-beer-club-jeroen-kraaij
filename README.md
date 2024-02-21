@@ -213,3 +213,8 @@ De volgende punten zijn gerealiseerd:
 - De belangrijkste functionaliteiten zijn nu in grote lijnen ontwikkeld.
 - Project nu als back-up naar Github gestuurd.
 - Deze readme file up-to-date gemaakt.
+
+##### 11 februari
+Het gehele project is op Github gezet. De branch feature/authenticationm is samengevoegd met de Main Branch. er is een nieuwe branche aangemaakt genaamd "feature/completing-functionality". 
+Hierin worden de laatste functionele punten verwerkt de aankomende week. 
+- Definitief alle 12 smaken aangemaakt binnen Smaaktest 

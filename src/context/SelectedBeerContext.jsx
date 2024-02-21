@@ -1,18 +1,19 @@
+import {createContext, useState, useContext, useEffect} from 'react';
 
+export const SelectedBeerContext = createContext({});
 
-import { createContext, useState, useContext } from 'react';
+export default function  SelectedBeerProvider ({ children }) {
+    const [selectedBeerProduct, setSelectedBeerProduct] = useState(0);
 
-// Create a context for the selected beer ID
-const SelectedBeerContext = createContext();
-
-// Create a provider component to wrap your application
-export const SelectedBeerProvider = ({ children }) => {
-    const [selectedBeerId, setSelectedBeerId] = useState(null);
+    useEffect(() => {
+        console.log('selectedBeerProduct in Context: ', selectedBeerProduct)
+    }, [selectedBeerProduct]);
 
     return (
-        <SelectedBeerContext.Provider value={{ selectedBeerId, setSelectedBeerId }}>
+        <SelectedBeerContext.Provider value={{ selectedBeerProduct, setSelectedBeerProduct }}>
             {children}
         </SelectedBeerContext.Provider>
     );
-};
+}
+
 export const useSelectedBeer = () => useContext(SelectedBeerContext);

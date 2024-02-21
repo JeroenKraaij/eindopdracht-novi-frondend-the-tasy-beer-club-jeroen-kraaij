@@ -1,8 +1,155 @@
-.productPage {
+
+.article-product-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content-product-page {
+    display: flex;
+    flex-shrink: 2;
+    flex-grow: 1;
+    width: 100%;
+    padding: 30px 10px;
+    column-gap: 40px;
+}
+
+.image-box {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-primary-white);
+    border-radius: var(--border-rad-xs);
+    box-shadow: var(--box-shadow-display);
+    padding: 40px;
+}
+
+.product-image {
+    width: 150px;
+    height: 450px;
 
 }
 
-.productPage img {
-    width: 350px;
-    height: 600px;
+.content-box {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.content-box h1 {
+    text-transform: uppercase;
+    font-weight: var(--font-w-black);
+}
+
+.content-box h2 {
+    text-transform: uppercase;
+    font-weight: var(--font-w-black);
+    padding: 20px 0 5px 0;
+}
+
+.content-box h3 {
+    font-size: var(--font-size-xxs);
+    padding: 20px 0 5px 0;
+}
+
+.content-box ul {
+    list-style-type: none;
+}
+
+.tagline {
+    font-size: var(--font-size-xs) ;
+}
+
+.beer-color {
+    display: flex;
+    margin: 20px 0 10px 0;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: var(--border-rad-xl);
+}
+
+.order-beer-buttons {
+    display: flex;
+    margin: 20px 0;
+    column-gap: 20px;
+    align-items: center;
+    border-top: 1px solid var(--border-color-grey);
+    padding-top: 15px;
+}
+
+.button-order-product {
+    border-radius: var(--border-rad-s);
+    width: 100%;
+    border: 1px solid transparent;
+    font-size: var(--font-size-text);
+    font-weight: var(--font-w-semiBold);
+    color: var(--text-button-color);
+    background-color: var(--button-background-color);
+    padding: 10px 60px;
+    margin: 10px 0;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+
+
+}
+
+/* Beer colors */
+.light-beer {
+    background-color: #FAD9A5;
+}
+
+.maibock {
+    background-color: #F3DE8A;
+}
+
+.weissbier {
+    background-color: #F7E7CE;
+}
+
+.india-pale-ale {
+    background-color: #E4A84F;
+}
+
+.saison {
+    background-color: #CD853F;
+}
+
+.english-bitter {
+    background-color: #6B4226;
+}
+
+.double-ipa {
+    background-color: #A52A2A;
+}
+
+.amber-ale {
+    background-color: #8a3535;
+}
+
+.bock {
+    background-color: #8B4513;
+}
+
+.robust-porter {
+    background-color: #342616;
+}
+
+.american-stout {
+    background-color: #2c1c10;
+}
+
+.imperial-stout {
+    background-color: #180f0f;
+}
+
+.unknown {
+    background-color: #808080;
 }

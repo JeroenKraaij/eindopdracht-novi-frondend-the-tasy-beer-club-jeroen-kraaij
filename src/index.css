@@ -46,8 +46,8 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   --clr-primary-black: #000000;
 
   /* Accent Colors */
-  --accent-color-1: #f7ff00;
-  --accent-color-2: #e74c3c;
+  --accent-color-1: #8a3e01;
+  --accent-color-2: var(--clr-secondary-orange);
 
   /* Background Colors */
   --background-color-1: var(--clr-primary-dark-green);
@@ -59,7 +59,13 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   --text-header-color: var(--clr-primary-dark-green);
   --text-menu-color:  var(--crl-secondary-light-yellow);
   --text-menu-color-active: var(--crl-secondary-pink);
-  --text-button-color: var(--clr-primary-white);
+  --text-button-color: var(--clr-primary-dark-green);
+
+  /* Text and Header display colors */
+  --text-display-white: var(--clr-primary-white);
+  --text-display-pink: var(--crl-secondary-pink);
+  --text-display-green: var(--clr-primary-dark-green);
+  --text-display-black:  var(--clr-primary-black);
 
   /* Button Colors */
   --button-background-color: var(--clr-secondary-orange);
@@ -67,6 +73,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   /* Border Colors */
   --border-color: var(--clr-grey-800);
   --border-color-green: var(--clr-primary-green);
+  --border-color-grey: var(--clr-grey-100);
 
 
   /*////////////////////////
@@ -85,8 +92,9 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   --font-size-s: 1.5rem;
   --font-size-m: 1.75rem;
   --font-size-l: 2rem;
+  --font-size-xl: 2.25rem;
   --font-size-xxl: 2.75rem;
-  --font-size-xl: 1.375rem;
+
 
   /* Font Weight */
   --font-w-thin: 100;
@@ -108,6 +116,11 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
 
   /* Border  */
   --border-primary-style: 1px solid var(--clr-grey-900);
+
+  /* Box Shadow */
+  --box-shadow-display: 0 0 16px rgba(0, 0, 0, 25%);
+
+
 }
 
 /* Links  */
@@ -122,21 +135,38 @@ a:hover {
 }
 
 /* Main button  */
+/*button {*/
+/*  border-radius: var(--border-rad-m);*/
+/*  border: 1px solid transparent;*/
+/*  font-size: var(--font-size-text);*/
+/*  font-weight: var(--font-w-semiBold);*/
+/*  color: var(--text-button-color);*/
+/*  background-color: var(--button-background-color);*/
+/*  padding: 10px 50px;*/
+/*  margin: 10px 0;*/
+/*  font-family: inherit;*/
+/*  cursor: pointer;*/
+/*  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);*/
 
-button {
-  border-radius: var(--border-rad-xs);
-  border: var(--border-primary-style);
+/*}*/
+.button-nav {
+  border-radius: var(--border-rad-m);
+  border: 1px solid transparent;
   font-size: var(--font-size-text);
   font-weight: var(--font-w-semiBold);
+  color: var(--text-button-color);
   background-color: var(--button-background-color);
-  padding: 0.6em 1.2em;
+  padding: 10px 50px;
+  margin: 10px 0;
   font-family: inherit;
   cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
 }
+
 button:hover {
-  border-color: #646cff;
   background-color: darkseagreen;
+  color: var(--clr-primary-white);
 }
 button:focus,
 button:focus-visible {
@@ -165,7 +195,41 @@ input {
   font-size: 1em;
 }
 
+.order-beer-box {
+  display: flex;
+}
 
+/* Standard List Items */
+.webshop-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  padding: 20px 30px;
+  row-gap: 20px;
+
+}
+
+.webshop-image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px ;
+  width: 50px;
+
+
+}
+
+.webshop-image-box img {
+
+  width: 100%;
+  height: 100%;
+
+
+
+}
 
 
 

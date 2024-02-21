@@ -4,28 +4,29 @@ import posts from '../../constants/blogData.json';
 
 export default function BlogArticles() {
     return (
-        <>
+        <ul className={styles["blog-post-list"]}>
             {posts.map((post, index) => {
-                const {
-                    titleH1, mainSubtitle, author, comments, shares, images,
+                const {id, titleH1, mainArticle,  author, comments, shares, images,
                 } = post;
 
                 return (
-                    <div key={index} className={styles['blog-post-card']}>
-                        <div className={styles['blog-post-title']}>
-                            <img src={images.url} alt={titleH1} />
+                    <li key={index} className={styles["blog-post-card"]}>
+                        <figure>
+                            <img className={styles["blog-post-img"]} src={images.url} alt={titleH1} />
+                        </figure>
+                        <div className={styles["blog-post-content"]}>
                             <h3>
-                                <Link to={`/artikelen/${post.id}`}>{titleH1}</Link>
+                                <Link to={`/artikelen/${id}`}>{titleH1}</Link>
                             </h3>
-                            <p>{mainSubtitle}</p>
-                            <p>({author})</p>
+                            <p>{mainArticle}</p>
+
                         </div>
                         <div className={styles['blog-post-meta']}>
                             {comments} reactions - {shares} times shared
                         </div>
-                    </div>
+                    </li>
                 );
             })}
-        </>
+        </ul>
     );
 }

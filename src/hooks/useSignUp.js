@@ -3,17 +3,21 @@ import { useState} from "react";
 //firebase
 import { auth } from "../firebase/config.js";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useAuthContext} from "./UseAuthContext.js";
+
+
 export const useSignUp = () => {
     const [error, setError] = useState(null);
+    const { dispatch } = useAuthContext()
     const signUp = (email, password) => {
         setError(null)
         createUserWithEmailAndPassword(auth, email, password)
             .then((res) => {
-                console.log('user signed up:', res.user)
+               dispatch({type: 'LOGIN', payload: res.user})
             })
             .catch((err) => {
                 setError(err.message)
             })
     }
-    return {error, signUp}
+    return { error, signUp }
 }

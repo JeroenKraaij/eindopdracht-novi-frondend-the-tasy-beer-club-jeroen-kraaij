@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import styles from "./QuantityCounter.module.css";
 
-export default function QuantityCounter() {
-    const [quantity, setQuantity] = useState(0);
-
+export default function QuantityCounter({ quantity, setQuantity }) {
     const incrementQuantity = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
     };
@@ -14,7 +12,7 @@ export default function QuantityCounter() {
     };
 
     return (
-        <div>
+        <div className={styles.quantityCounter}>
             <button onClick={decrementQuantity}>-</button>
             <span>{quantity}</span>
             <button onClick={incrementQuantity}>+</button>

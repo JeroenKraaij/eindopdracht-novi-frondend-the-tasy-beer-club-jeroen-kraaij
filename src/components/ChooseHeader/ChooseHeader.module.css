@@ -1,8 +1,11 @@
 .choose-header {
     display: flex;
+    justify-content: start;
     align-items: center;
-    width: 700px;
-
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    column-gap: 30px;
 }
 
 .label-header-default {
