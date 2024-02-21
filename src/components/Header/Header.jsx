@@ -40,11 +40,6 @@ export default function Header() {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/over-ons" className={({ isActive}) => isActive === true ? 'active-link' : 'default-link'} >
-                                Over ons
-                            </NavLink>
-                        </li>
-                        <li>
                             <NavLink to="/artikelen" className={({ isActive}) => isActive === true ? 'active-link' : 'default-link'} >
                                 Blog
                             </NavLink>

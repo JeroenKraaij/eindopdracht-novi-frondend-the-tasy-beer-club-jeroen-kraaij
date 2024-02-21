@@ -10,8 +10,6 @@ export default function Smaaktest() {
     const [likeCategory, setLikeCategory] = useState([]);
     const [DislikeCategory, setDislikeCategory] = useState([]);
     const [categoryCounts, setCategoryCounts] = useState({});
-
-
     const order = ["Smaaktest", "KiesJeBox"];
     const handleTasteTestResultChange = (likeCategories, dislikeCategories) => {
         setLikeCategory(likeCategories);
@@ -24,7 +22,6 @@ export default function Smaaktest() {
     };
 
     useEffect(() => {
-        console.log("categoryCounts", categoryCounts)
     }, [categoryCounts]);
     return (
         <article className={styles['choose-taste']}>

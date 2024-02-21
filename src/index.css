@@ -46,8 +46,8 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   --clr-primary-black: #000000;
 
   /* Accent Colors */
-  --accent-color-1: #f7ff00;
-  --accent-color-2: #e74c3c;
+  --accent-color-1: #8a3e01;
+  --accent-color-2: var(--clr-secondary-orange);
 
   /* Background Colors */
   --background-color-1: var(--clr-primary-dark-green);
@@ -60,6 +60,12 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   --text-menu-color:  var(--crl-secondary-light-yellow);
   --text-menu-color-active: var(--crl-secondary-pink);
   --text-button-color: var(--clr-primary-dark-green);
+
+  /* Text and Header display colors */
+  --text-display-white: var(--clr-primary-white);
+  --text-display-pink: var(--crl-secondary-pink);
+  --text-display-green: var(--clr-primary-dark-green);
+  --text-display-black:  var(--clr-primary-black);
 
   /* Button Colors */
   --button-background-color: var(--clr-secondary-orange);
@@ -86,8 +92,9 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   --font-size-s: 1.5rem;
   --font-size-m: 1.75rem;
   --font-size-l: 2rem;
+  --font-size-xl: 2.25rem;
   --font-size-xxl: 2.75rem;
-  --font-size-xl: 1.375rem;
+
 
   /* Font Weight */
   --font-w-thin: 100;
@@ -109,6 +116,11 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
 
   /* Border  */
   --border-primary-style: 1px solid var(--clr-grey-900);
+
+  /* Box Shadow */
+  --box-shadow-display: 0 0 16px rgba(0, 0, 0, 25%);
+
+
 }
 
 /* Links  */
@@ -182,6 +194,44 @@ input {
   width: 100%;
   font-size: 1em;
 }
+
+.order-beer-box {
+  display: flex;
+}
+
+/* Standard List Items */
+.webshop-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  padding: 20px 30px;
+  row-gap: 20px;
+
+}
+
+.webshop-image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px ;
+  width: 50px;
+
+
+}
+
+.webshop-image-box img {
+
+  width: 100%;
+  height: 100%;
+
+
+
+}
+
+
 
 /*////////////////////////
     Typography

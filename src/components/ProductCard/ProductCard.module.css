@@ -10,8 +10,9 @@
     justify-content: center;
     width: 100%;
     padding: 50px 20px;
-    border: 1px solid var(--border-color-grey);
-    background-color: var(--clr-grey-50)
+    background-color: var(--clr-primary-white);
+    border-radius: var(--border-rad-xs);
+    box-shadow: var(--box-shadow-display);
 
 }
 

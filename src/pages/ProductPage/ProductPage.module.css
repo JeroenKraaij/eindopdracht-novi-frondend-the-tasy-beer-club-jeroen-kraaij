@@ -19,8 +19,9 @@
     width: 50%;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 25%);
-    border-radius: var(--border-rad-s);
+    background-color: var(--clr-primary-white);
+    border-radius: var(--border-rad-xs);
+    box-shadow: var(--box-shadow-display);
     padding: 40px;
 }
 
@@ -99,8 +100,6 @@
 
 
 }
-
-
 
 /* Beer colors */
 .light-beer {

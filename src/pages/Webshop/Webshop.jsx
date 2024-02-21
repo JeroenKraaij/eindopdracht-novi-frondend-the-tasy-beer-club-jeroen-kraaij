@@ -7,7 +7,7 @@ import SearchDropdown from '../../components/SearchDropdown/SearchDropdown.jsx';
 
 export default function Webshop() {
     const [pagePagination, setPagePagination] = useState(1);
-    const [perPageCount, setPerPageCount] = useState(10); // Initial per page count
+    const [perPageCount, setPerPageCount] = useState(10);
     const { beers: fetchAllData, isLoading, error, setSearchQuery, setPageNumber } = useFetchFilteredBeerData(perPageCount, setPerPageCount, pagePagination);
 
     const handleForwardPagination = () => {

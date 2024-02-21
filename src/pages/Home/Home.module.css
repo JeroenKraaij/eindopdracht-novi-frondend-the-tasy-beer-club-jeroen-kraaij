@@ -1,3 +1,192 @@
-.article-home {
+
+/* Home.module.css */
+.articleHome {
+    height: 100%
+}
+
+.homeBanner {
+    background-image: url('../../assets/images/The Beer Taste Club header image.webp');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 450px;
+    position: relative;
+}
+
+.mainBanner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mainBanner h1 {
+    display: flex;
+}
+
+.text-display-white {
+    color: var(--text-display-white)
+}
+
+.text-display-pink {
+    color: var(--text-display-pink);
+    display: flex;
+}
+
+.text-display-black {
+    color: var(--text-display-black);
+}
+
+.mainBanner p {
+    color: var(--clr-primary-white);
+    padding: 10px 5%;
+    text-align: center;
+}
+
+.content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.content h2 {
+    font-size: var(--font-size-xl);
+    text-align: center;
+}
+
+.content h3 {
+    font-size: var(--font-size-xs);
+    text-align: start;
+
+}
+
+.tastyLogo {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
+
+.unique-selling-point {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-shrink: 2;
+    width: 100%;
+    margin: 20px 0;
+    column-gap: 20px;
+}
+
+.usp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    width: 30%;
+    padding:20px;
+
+}
+
+.usp h3 {
+    text-align: center
+}
+
+.usp p {
+    text-align: center;
+}
+
+.usp-image {
+    width: 75px;
+    height: 75px;
+}
+
+.smaaktest-content {
+    display: flex;
+    width: 100%;
+
+}
+
+.smaaktest-image {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 50%;
+}
+
+.call-to-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    margin: 0 30px;
+}
+
+.shopping-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    padding: 50px ;
+    background-image: url("../../assets/images/The Beer Taste Club paper background.webp");
+    border-radius: var(--border-rad-s);
+
+}
+.shopping-content p {
+    padding: 20px;
+    text-align: center;
+}
+
+.beer-process {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    flex-shrink: 2;
+    width: 100%;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+.process {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 48%;
+    text-align: center;
+    padding: 20px;
+}
+
+.process h3 {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    margin-top: 10px;
+
+}
+.process-image {
+    width: 150px;
+    height: 150px;
+
+}
+
+.blog-content {
+    margin: 30px 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../../assets/images/The Beer Taste Club paper background.webp");
+    border-radius: var(--border-rad-s);
+
 
 }

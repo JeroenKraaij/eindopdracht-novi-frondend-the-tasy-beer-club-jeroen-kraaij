@@ -6,15 +6,19 @@ export const useFetchBeerData = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
 
+    // useEffect(() => {
+    //     console.log("This is fetchData", fetchData)
+    // }, [fetchData])
+
     useEffect(() => {
-        const abortController = new AbortController();
+        // const abortController = new AbortController();
 
         async function fetchBeers() {
             try {
                 setIsLoading(true);
 
                 const response = await axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=80`);
-
+                console.log('fetchBeers response.data before setFetchData',response.data )
                 setFetchData(response.data);
             } catch (error) {
                 console.error(error);
@@ -24,12 +28,14 @@ export const useFetchBeerData = () => {
             }
         }
 
-        fetchBeers(); // No dependencies, fetch data on component mount
+        void fetchBeers();
 
-        return () => {
-            abortController.abort();
-        };
-    }, []); // Empty dependency array, runs once on component mount
+        // return () => {
+        //     abortController.abort();
+        // };
+    }, []);
 
-    return { beers: fetchData, isLoading, error };
+    return { fetchData, isLoading, error };
+    // return { fetchData, isLoading, error };
+
 }

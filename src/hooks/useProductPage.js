@@ -1,25 +1,18 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelectedBeer } from '../context/SelectedBeerContext.jsx';
 import { useFetchBeerData } from "../api/useFetchBeerData.js";
+import { useSelectedBeer } from '../context/SelectedBeerContext.jsx';
 
-export const useProductPage = () => {
-    const { id } = useParams();
-    const { beers: allFetchedBeers, isLoading, error } = useFetchBeerData();
-    const { setSelectedBeerId } = useSelectedBeer();
+export const useProductPage = (id) => {
+    const { fetchData, isLoading, error } = useFetchBeerData();
     const [beerProduct, setBeerProduct] = useState(null);
+    const { setSelectedBeerProduct } = useSelectedBeer();
 
     useEffect(() => {
         if (!isLoading) {
-            const selectedBeer = allFetchedBeers.find(beer => beer.id === parseInt(id));
+            const selectedBeer = fetchData.find(beer => beer.id === parseInt(id));
             setBeerProduct(selectedBeer);
         }
-    }, [allFetchedBeers, isLoading, id]);
+    }, [fetchData, isLoading, id]);
 
-    const handleOrderProduct = () => {
-        setSelectedBeerId(beerProduct.id);
-    };
-
-    return { beerProduct, isLoading, error, handleOrderProduct };
+    return { beerProduct, isLoading, error, setSelectedBeerProduct };
 };
-
