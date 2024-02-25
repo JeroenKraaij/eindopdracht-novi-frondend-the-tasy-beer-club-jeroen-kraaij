@@ -8,28 +8,29 @@ export default function ChooseTaste({ testResults, setCategoryCounts, statusBarR
 
     return (
         <>
-            <div className={styles['taste-statusbar']}>
+            <div className={styles["taste-statusbar"]}>
                 {images < imageUrls.length ? <p>Keuze {images + 1} van 12</p> : <p>Statusbar: 12 van 12 keuzes</p>}
             </div>
-            <div className={styles['taste-component']}>
+            <div className={styles["taste-component"]}>
                 {images < imageUrls.length ?
                     <img
-                        className={styles['main-choose-image']}
+                        className={styles["main-choose-image"]}
                         src={imageUrls[images]}
                         alt={`Image ${images + 1}`}
                     />
                     :
-                    <p>test geslaagd</p>
+                    <p>Je bent geslaagd voor de test</p>
+
                 }
                 <div>
                     {images === imageUrls.length  ?
-                        <button className={styles['taste-button']} onClick={handleStepChange}>
+                        <button className="button-nav" onClick={handleStepChange}>
                             {step === "Smaaktest" ? "Kies je Box" : <Link to={`/webshop/winkelmandje`}>Bestellen</Link>}
                         </button>
                         :
                         <>
                             <button className={styles['btn-taste-test']} onClick={() => handleButtonClick(true)}>👍🏼</button>
-                            <button className={styles['btn-taste-test']} onClick={() => handleButtonClick(false)}>🫶🏼</button>
+                            <button className={styles['btn-taste-test']} onClick={() => handleButtonClick(false)}>👎🏼</button>
                         </>
                     }
                 </div>

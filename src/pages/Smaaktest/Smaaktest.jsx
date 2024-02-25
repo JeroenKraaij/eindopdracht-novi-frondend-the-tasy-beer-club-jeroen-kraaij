@@ -4,6 +4,7 @@ import ChooseTaste from "../../components/ChooseTaste/ChooseTaste.jsx";
 import ChooseBox from "../../components/ChooseBox/ChooseBox.jsx";
 import ChooseHeader from "../../components/ChooseHeader/ChooseHeader.jsx";
 import { Link } from "react-router-dom";
+import PageBanner from "../../components/PageHero/PageBanner.jsx";
 
 export default function Smaaktest() {
     const [step, setStep] = useState("Smaaktest");

@@ -3,12 +3,16 @@ import styles from './Account.module.css';
 import { userLogout } from "../../hooks/userLogout.js";
 import { useCollection } from "../../hooks/UseCollection.js";
 import { useAuthContext } from "../../hooks/UseAuthContext.js";
+import Button from "../../components/Button/Button.jsx";
 
 export default function Account() {
     const { user } = useAuthContext();
-    const { documents: users } = useCollection("users", ['uid', '==', user.uid]);
+    const { documents: users } = useCollection ("users", ['uid', '==', user.uid]);
     const { logout } = userLogout();
-
+    const handleLogout = () => {
+        logout()
+    };
+    console.log( users )
     return (
         <article className={styles['article-account']}>
             <h1>Account</h1>
@@ -22,7 +26,11 @@ export default function Account() {
                     </div>
                 ))}
             </div>
-            <button onClick={logout}>Logout</button>
+            <Button
+                buttonName="Uitloggen"
+                handleButtonClick={handleLogout}
+                className="button-nav"
+            />
         </article>
     );
 }

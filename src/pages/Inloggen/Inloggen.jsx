@@ -1,4 +1,3 @@
-import styles from './Inloggen.module.css';
 import Login from "../../components/Login/Login.jsx";
 
 export default function Inloggen () {

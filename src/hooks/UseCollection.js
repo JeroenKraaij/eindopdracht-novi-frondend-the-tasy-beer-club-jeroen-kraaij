@@ -26,5 +26,6 @@ export const useCollection = (c, _q) => {
         return () => unsub();
     }, [c, q]);
 
-    return { documents };
+    return { documents  } ;
+
 };

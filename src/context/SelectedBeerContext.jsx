@@ -6,7 +6,6 @@ export default function  SelectedBeerProvider ({ children }) {
     const [selectedBeerProduct, setSelectedBeerProduct] = useState(0);
 
     useEffect(() => {
-        console.log('selectedBeerProduct in Context: ', selectedBeerProduct)
     }, [selectedBeerProduct]);
 
     return (

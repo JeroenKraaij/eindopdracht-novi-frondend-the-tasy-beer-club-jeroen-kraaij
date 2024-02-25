@@ -1,10 +1,13 @@
 import { useState, useContext, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { SelectedBeerContext } from "../../context/SelectedBeerContext.jsx";
 import styles from "./Winkelmandje.module.css";
-import { SelectedBeerContext } from '../../context/SelectedBeerContext.jsx';
 import { useFetchBeerData } from "../../api/useFetchBeerData.js";
-import Buttons from "../../components/Buttons/Buttons.jsx";
+import Button from "../../components/Button/Button.jsx";
 import WebShopList from "../../components/WebshopList/WebShopList.jsx";
+import CheckOut from "../../components/CheckOut/CheckOut.jsx";
+import Paypal from "../../assets/images/The Beer Taste Club logo paypal.webp"
+import Ideal from "../../assets/images/The Beer Taste Club logo Ideal.webp"
 
 export default function Winkelmandje() {
     const { selectedBeerProduct }  = useContext(SelectedBeerContext);
@@ -37,6 +40,7 @@ export default function Winkelmandje() {
         return <p>Error: {error.message}</p>;
     }
 
+
     return (
         <article className={styles['article-winkelmandje']}>
             <h1>Winkelmandje</h1>
@@ -58,13 +62,18 @@ export default function Winkelmandje() {
                 <div>
                     <p>Op dit moment is je winkelmandje leeg</p>
                     <Link to="/webshop">
-                        <Buttons className="button-nav" buttonName={"Naar Webshop"}/>
+                        <Button className="button-nav" buttonName={"Naar Webshop"}/>
                     </Link>
                 </div>
             )}
-            <Link to="/webshop/checkout">
-                <Buttons className="button-nav" buttonName="Bestellen"/>
-            </Link>
+            <CheckOut/>
+            <div className={styles["payment-methods"]}>
+                <h4>Betaal veilig en snel met</h4>
+                <figure className={styles["payment-image"]}>
+                    <img src={Ideal} alt={Ideal}/>
+                    <img src={Paypal} alt={Paypal}/>
+                </figure>
+            </div>
         </article>
     );
 }
