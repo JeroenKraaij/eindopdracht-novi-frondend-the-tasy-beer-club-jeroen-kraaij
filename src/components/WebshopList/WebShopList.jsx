@@ -10,7 +10,10 @@ export default function WebShopList ({orderedBeer, price, totalPrice, setQuantit
             <p>{orderedBeer.name}</p>
             <p className={styles.productPrice}> € {price.toFixed(2)}</p>
             <p className={styles.productQuantity}><QuantityCounter setQuantity={setQuantity} quantity={quantity}/></p>
-            <p className={styles.subtotal}> € {totalPrice.toFixed(2)}</p>
+            <div className={styles["summary-order"]}>
+                <p>Totaalbedrag € {totalPrice.toFixed(2)} </p>
+            </div>
         </>
+
     )
 }

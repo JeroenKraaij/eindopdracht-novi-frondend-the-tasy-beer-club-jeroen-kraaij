@@ -26,10 +26,11 @@ export const useFetchFilteredBeerData = (perPageCount, setPerPageCount, pagePagi
                 });
 
                 setFetchAllData(response.data);
+                setError('');
 
             } catch (error) {
                 console.error(error);
-                setError('An error occurred while fetching beer data.');
+                setError('');
             } finally {
                 setIsLoading(false);
             }

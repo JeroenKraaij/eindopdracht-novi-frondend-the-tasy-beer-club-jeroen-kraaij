@@ -1,9 +1,9 @@
-// Webshop.jsx
 import { useState } from 'react';
 import styles from './Webshop.module.css';
 import ProductCard from '../../components/ProductCard/ProductCard.jsx';
 import { useFetchFilteredBeerData } from '../../api/useFetchFilteredBeerData.js';
-import SearchDropdown from '../../components/SearchDropdown/SearchDropdown.jsx';
+import Selecter from "../../components/Selecter/Selecter.jsx";
+import Button from "../../components/Button/Button.jsx";
 
 export default function Webshop() {
     const [pagePagination, setPagePagination] = useState(1);
@@ -37,26 +37,29 @@ export default function Webshop() {
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Zoek je bier"
                     />
+                    <Selecter
+                        onChangeHandle={handlePerPageCountChange}
+                        value={perPageCount}
+                    />
                 </div>
-                <div className={styles['searchDropdown']}>
-                    <p>Zoek een biertje op soort:</p>
-                    <SearchDropdown />
-                </div>
+                <div className={styles["product-count"]}></div>
             </div>
             <article className={styles['product-overview']}>
                 {isLoading && <h2>Loading...</h2>}
                 {error && <h2>{error}</h2>}
                 <div className={styles.pagination}>
-                    <button className="button-nav" onClick={handleBackPagination} disabled={pagePagination === 1}>← Terug</button>
-                    <button className="button-nav" onClick={handleForwardPagination} disabled={fetchAllData?.length === 0}>Vooruit →</button>
-                </div>
-                <div className={styles['product-count']}>
-                    <select onChange={handlePerPageCountChange} value={perPageCount}>
-                        <option value={10}>10</option>
-                        <option value={25}>25</option>
-                        <option value={50}>50</option>
-                        <option value={80}>80</option>
-                    </select>
+                    <Button
+                        buttonName={"← Terug"}
+                        className="button-nav"
+                        handleButtonClick={handleBackPagination}
+                        disabled={pagePagination === 1}
+                    />
+                    <Button
+                        buttonName={"Vooruit →"}
+                        className="button-nav"
+                        handleButtonClick={handleForwardPagination}
+                        disabled={fetchAllData?.length === 0}
+                    />
                 </div>
                 <ul>
                     {fetchAllData &&

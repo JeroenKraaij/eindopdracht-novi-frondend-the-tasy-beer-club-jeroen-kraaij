@@ -1,7 +1,6 @@
-import React from "react";
 import {Link} from "react-router-dom";
 import styles from "./ContactContent.module.css";
-import Buttons from "../Buttons/Buttons.jsx";
+import Button from "../Button/Button.jsx";
 
 import DrinkingBeer from "../../assets/images/The Beer Taste Club drinking beer.webp";
 
@@ -21,10 +20,10 @@ export default function ContactContent () {
                 <p>Neem contact met ons</p>
 
                 <Link to={`/contact`}>
-                    <Buttons
+                    <Button
                         buttonName={"Naar contact"}
                         className={"button-nav"}
-                    ></Buttons>
+                    ></Button>
                 </Link>
             </div>
         </div>

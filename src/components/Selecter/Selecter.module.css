@@ -1,0 +1,34 @@
+.select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid var(--border-color-green);
+    border-radius: var(--border-rad-xs);
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.select:hover {
+    border-color: #999999;
+}
+
+.select:focus {
+    outline: none;
+    border-color: var(--clr-secondary-orange);
+}
+
+.select option {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.select option:last-child {
+    border-bottom: none;
+}
+
+.select::-ms-expand {
+    display: flex;
+}

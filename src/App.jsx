@@ -19,7 +19,6 @@ import Account from "./pages/Account/Account.jsx"
 import Inloggen from "./pages/Inloggen/Inloggen.jsx";
 import ProductPage from "./pages/ProductPage/ProductPage.jsx";
 import Winkelmandje from "./pages/Winkelmandje/Winkelmandje.jsx";
-import CheckOut from "./pages/CheckOut/CheckOut.jsx";
 
 function App() {
     const { user, authIsReady } = useAuthContext();
@@ -45,7 +44,6 @@ function App() {
                             <Route path="/webshop/winkelmandje" element={<Winkelmandje/>}/>
                             <Route path="/inloggen" element={user ? <Navigate to="/account"/> : <Inloggen/>}/>
                             <Route path="/account" element={user ? <Account/> : <Navigate to='/inloggen' />} />
-                            <Route path="/webshop/checkout" element={<CheckOut/>} />
                         </Routes>
                     )}
                 </section>

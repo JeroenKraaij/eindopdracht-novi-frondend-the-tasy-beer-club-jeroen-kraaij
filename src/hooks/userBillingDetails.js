@@ -38,6 +38,7 @@ export const useBillingDetails = () => {
                 setDeliveryDate('');
                 setAcceptedTerms(false);
                 setFormError('');
+
         } catch (error) {
             console.error("Error adding document: ", error);
             setFormError('Error submitting form. Please try again later.');

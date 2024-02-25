@@ -18,7 +18,6 @@ export const useFetchBeerData = () => {
                 setIsLoading(true);
 
                 const response = await axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=80`);
-                console.log('fetchBeers response.data before setFetchData',response.data )
                 setFetchData(response.data);
             } catch (error) {
                 console.error(error);

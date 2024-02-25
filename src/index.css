@@ -9,6 +9,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   margin: 0;
   padding: 0;
@@ -118,8 +119,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   --border-primary-style: 1px solid var(--clr-grey-900);
 
   /* Box Shadow */
-  --box-shadow-display: 0 0 16px rgba(0, 0, 0, 25%);
-
+  --box-shadow-display: 0 0 4px rgba(0, 0, 0, 25%);
 
 }
 
@@ -134,21 +134,7 @@ a:hover {
   color: var(--accent-color-1);
 }
 
-/* Main button  */
-/*button {*/
-/*  border-radius: var(--border-rad-m);*/
-/*  border: 1px solid transparent;*/
-/*  font-size: var(--font-size-text);*/
-/*  font-weight: var(--font-w-semiBold);*/
-/*  color: var(--text-button-color);*/
-/*  background-color: var(--button-background-color);*/
-/*  padding: 10px 50px;*/
-/*  margin: 10px 0;*/
-/*  font-family: inherit;*/
-/*  cursor: pointer;*/
-/*  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);*/
-
-/*}*/
+/* Buttons */
 .button-nav {
   border-radius: var(--border-rad-m);
   border: 1px solid transparent;
@@ -161,7 +147,6 @@ a:hover {
   font-family: inherit;
   cursor: pointer;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-
 }
 
 button:hover {
@@ -179,22 +164,52 @@ img {
 }
 
 /* Form fields */
+.login-form {
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-label {
+.login-form p {
+  margin: 10px 0;
+}
+
+.login-form label {
   display: block;
-  margin: 15px auto;
-}
- span {
-  display: block;
-  margin-bottom: 6px;
-
-}
-input {
-  padding: 8px 6px;
-  width: 100%;
-  font-size: 1em;
+  margin: 10px 0;
 }
 
+.login-form span {
+  display: inline-block;
+  width: 200px;
+  padding: 5px 0;
+}
+
+.login-form input,
+.login-form input {
+  width: 300px;
+  padding: 5px;
+  border: 1px solid var(--border-color-green);
+  border-radius: var(--border-rad-xs);
+}
+
+.login-form input:focus,
+.login-form input:focus {
+  border-color: var(--clr-secondary-orange);
+  outline: none;
+}
+
+.login-form .error-message {
+  color: #dc3545;
+}
+
+.form-button {
+  width: 350px;
+  padding: 20px 0;
+}
+
+
+/* <ul> <li> */
 .order-beer-box {
   display: flex;
 }
@@ -207,9 +222,21 @@ input {
   align-items: center;
   width: 100%;
   height: 200px;
-  padding: 20px 30px;
+  padding: 50px 30px;
   row-gap: 20px;
+}
 
+ .webshop-list ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 20px;
+ }
+
+.product-overview ul li {
+  width: 30%;
 }
 
 .webshop-image-box {
@@ -218,20 +245,12 @@ input {
   align-items: center;
   height: 150px ;
   width: 50px;
-
-
 }
 
 .webshop-image-box img {
-
   width: 100%;
   height: 100%;
-
-
-
 }
-
-
 
 /*////////////////////////
     Typography
@@ -245,48 +264,56 @@ input {
   font-weight: 900;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Noto Sans', sans-serif;
   src: url("./assets/fonts/NotoSans_Condensed-ExtraBold.ttf") format('ttf');
   font-weight: 800;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Noto Sans', sans-serif;
   src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
   font-weight: bold;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Noto Sans', sans-serif;
   src: url("./assets/fonts/NotoSans_Condensed-SemiBold.ttf") format('ttf');
   font-weight: 600;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Noto Sans', sans-serif;
   src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
   font-weight: 500;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Noto Sans', sans-serif;
   src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Noto Sans', sans-serif;
   src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
   font-weight: 300;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Noto Sans', sans-serif;
   src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
   font-weight: 200;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Noto Sans', sans-serif;
   src: url("./assets/fonts/NotoSans_Condensed-Bold.ttf") format('ttf');
@@ -302,32 +329,37 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-w-bold);
   font-style: normal;
 }
+
 h1 {
-  font-size: var(--font-size-xxl)
+  font-size: var(--font-size-xxl);
+  text-transform: uppercase;
+
 }
 
 h2 {
-  font-size: var(--font-size-xl)
+  font-size: var(--font-size-xl);
+  text-transform: uppercase;
 }
 
 h3 {
-  font-size: var(--font-size-l)
+  font-size: var(--font-size-l);
+  text-transform: uppercase;
 }
 
 h4 {
-  font-size: var(--font-size-m)
+  font-size: var(--font-size-m);
+  text-transform: uppercase;
 }
 
 h5 {
-  font-size: var(--font-size-s)
+  font-size: var(--font-size-s);
+  text-transform: uppercase;
 }
 
 h6 {
-  font-size: var(--font-size-xxs)
+  font-size: var(--font-size-xxs);
+  text-transform: uppercase;
 }
-
-
-
 
 
 /*////////////////////////
@@ -351,20 +383,28 @@ body {
     Main Media Setting
 ////////////////////////*/
 
+/* Mobile */
+  @media only screen and (max-width: 700px) {
 
-  /* Tablet */
-  @media only screen and (min-width: 601px) and (max-width: 900px) {
+    h1 {
+      font-size: var(--font-size-xl);
+      text-transform: uppercase;
 
+    }
 
+    h2 {
+      font-size: var(--font-size-l);
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-size: var(--font-size-m);
+      text-transform: uppercase;
+    }
+
+    h4 {
+      font-size: var(--font-size-s);
+      text-transform: uppercase;
+    }
   }
 
-  /* Desktop  */
-  @media only screen and (min-width: 901px) and (max-width: 1200px) {
-
-
-  }
-
-  /* Wide screen */
-  @media only screen and (min-width: 1201px) {
-
-  }

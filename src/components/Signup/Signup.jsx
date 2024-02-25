@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styles from "./Signup.module.css";
+import { useState } from 'react';
 import { useSignUp } from "../../hooks/useSignUp.js";
+import Button from "../Button/Button.jsx";
 
 export default function Signup() {
     const [email, setEmail] = useState('');
@@ -12,37 +12,45 @@ export default function Signup() {
         e.preventDefault();
 
         if (!email || !password) {
-            setError('Please provide both email and password.');
+            setError('Geef zowel het e-mailadres als het wachtwoord op.');
             return;
         }
         if (password.length < 6) {
-            setError('Password should be at least 6 characters long.');
+            setError('Het wachtwoord moet minimaal 6 tekens lang zijn.');
             return;
         }
         signUp(email, password);
     }
 
     return (
-        <form onSubmit={handleSubmit} className={styles['login-form']}>
+        <form onSubmit={handleSubmit} className="login-form">
             <p>Maak een account:</p>
             <label htmlFor="email">
-                <span>e-mail:</span>
-                <input type='email'
-                       id="email"
-                       onChange={(e) => setEmail(e.target.value)}
-                       value={email}
+                <span>E-mail:</span>
+                <input
+                    type='email'
+                    id="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                 />
             </label>
             <label htmlFor="password">
                 <span>Wachtwoord:</span>
-                <input type='password'
-                       id="password"
-                       onChange={(e) => setPassword(e.target.value)}
-                       value={password}
+                <input
+                    type='password'
+                    id="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                 />
             </label>
             {loading && <p>Loading...</p>}
-            {error && <p className={styles['error-message']}>{error}</p>}
+            {error && <p className="error-message">{error}</p>}
+            <div className="form-button">
+                <Button
+                    buttonName="Registreer je account:"
+                    className="button-nav"
+                />
+            </div>
         </form>
     )
 }

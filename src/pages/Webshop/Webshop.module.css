@@ -1,19 +1,20 @@
-
 .searchbar {
     display: flex;
     width: 100%;
     border: 1px solid var(--border-color);
     margin-top: 20px;
     padding: 20px 20px;
-
 }
 
 .inputField {
     display: flex;
-    width: 50%;
+    width: 100%;
+    height: 30px;
+    padding: 10px 20px;
     border: 1px solid var(--border-color-green);
     border-radius: var(--border-rad-xs);
 }
+
 .inputField:hover {
     border-color: var(--clr-secondary-orange);
 }
@@ -24,7 +25,7 @@
     align-items: center;
     padding: 10px 20px;
     column-gap: 30px;
-    width: 50%;
+    width: 100%;
 }
 
 .searchDropdown {
@@ -44,23 +45,25 @@
     margin: 10px 0;
     column-gap: 20px;
 }
-.product-count {
-    background-color: #006280;
-}
 
 .product-overview {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 .product-overview ul {
-    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     list-style-type: none;
-    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+    gap: 50px;
+
 }
+
 .product-overview ul li {
-    width: 30%;
+    width: 25%;
 }

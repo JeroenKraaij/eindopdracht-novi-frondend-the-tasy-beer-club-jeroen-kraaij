@@ -1,27 +1,29 @@
-import React from 'react';
 import {Link} from "react-router-dom";
 import styles from './Home.module.css';
+import BlogArticles from "../../components/BlogArticles/BlogArticles.jsx";
+import PageBanner from "../../components/PageHero/PageBanner.jsx";
 import DisplayImageAndText from "./DisplayImageAndText.jsx";
-import HomeBanner from "./HomeBanner.jsx";
 import SmaaktestContent from "./SmaaktestContent.jsx";
 import ContactContent from "../../components/ContactContent/ContactContent.jsx";
-import { useFetchRandomBeerData } from "../../api/useFetchRandomBeerData.js";
-import Buttons from "../../components/Buttons/Buttons.jsx";
+import Button from "../../components/Button/Button.jsx";
+import RandomBeer from "../../components/RandomBeer/RandomBeer.jsx";
 import TastyLogo from "../../assets/svg/TastyBeerClub Logo transparent.svg"
 import BeerBarrel from "../../assets/svg/BeerBarrel-icon.svg"
 import BeerIconOne from "../../assets/svg/beer-icon-1.svg"
 import BeerIconTwo from "../../assets/svg/beer-icon-2.svg"
 import BeerIconThree from "../../assets/svg/beer-icon-3.svg"
 import BeerIconFour from "../../assets/svg/beer-icon-4.svg"
-import BlogArticles from "../../components/BlogArticles/BlogArticles.jsx";
-
 
 export default function Home() {
-    const { randomBeer, isLoading, error } = useFetchRandomBeerData();
 
     return (
         <article className={styles.articleHome}>
-            <HomeBanner/>
+            <PageBanner
+                bannerTitleWhite="Tasty Beer"
+                bannerTitleColor="Club"
+                bannerDescription="De Tasty Beer Club is een uitzonderlijke leuke club voor bierliefhebber. Met 300 bieren op voorraad zijn wij de grootste bierclub van Nederland."
+                className={styles["page-banner-large"]}
+            />
             <div className={styles.content}>
                 <figure className={styles.tastyLogo}>
                     <img src={TastyLogo} alt="Logo Tasty Beer Club"/>
@@ -54,7 +56,6 @@ export default function Home() {
                     />
                 </div>
             </div>
-            <SmaaktestContent/>
             <div className={styles["shopping-content"]}>
                 <h4>De beste bierbrouwerijen</h4>
                 <p>
@@ -96,53 +97,35 @@ export default function Home() {
                     />
                 </div>
             </div>
+            <SmaaktestContent/>
             <div className={styles.content}>
                 <figure className={styles.tastyLogo}>
                     <img src={TastyLogo} alt="Logo Tasty Beer Club"/>
                 </figure>
                 <h2>Ontdek ons bier</h2>
-                <div>
-                    {isLoading ? (
-                        <p>Loading...</p>
-                    ) : error ? (
-                        <p>Error: {error}</p>
-                    ) : randomBeer ? (
-                        <ul>
-                            <li>
-                                <h3>{randomBeer.name}</h3>
-                                <p>ABV: {randomBeer.abv}%</p>
-                                {/* Add other beer details as needed */}
-                            </li>
-                            <li>
-                                <h3>{randomBeer.name}</h3>
-                                <p>ABV: {randomBeer.abv}%</p>
-                                {/* Add other beer details as needed */}
-                            </li>
-                            <li>
-                                <h3>{randomBeer.name}</h3>
-                                <p>ABV: {randomBeer.abv}%</p>
-                                {/* Add other beer details as needed */}
-                            </li>
-                        </ul>
-                    ) : null}
+                <div className={styles["random-beer-box"]}>
+                    <RandomBeer/>
+                    <RandomBeer/>
+                    <RandomBeer/>
                 </div>
                 <Link to={`/webshop`}>
-                    <Buttons
+                    <Button
                         buttonName={"Naar de webshop"}
                         className={"button-nav"}
-                    ></Buttons>
+                    ></Button>
                 </Link>
 
             </div>
             <div className={styles["blog-content"]}>
+                <figure className={styles.tastyLogo}>
+                    <img src={TastyLogo} alt="Logo Tasty Beer Club"/>
+                </figure>
                 <h3>Recente artikelen</h3>
                 <BlogArticles/>
             </div>
             <div className={styles.content}>
                 <ContactContent/>
             </div>
-
-
         </article>
     );
 }

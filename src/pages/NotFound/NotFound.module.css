@@ -1,0 +1,27 @@
+
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    row-gap: 20px;
+    background-image: url("../../assets/images/The Beer Taste Club 404.webp");
+}
+
+.not-found h1 {
+    color: var(--clr-primary-white);
+    font-size: var(--font-size-m);
+}
+
+.not-found p {
+    background-color: rgba(0, 98, 128, 0.5);
+    padding: 20px;
+    border-radius: var(--border-rad-s);
+    font-size: var(--font-size-s);
+    color: var(--clr-primary-black);
+    font-weight: var(--font-w-extraBoldt);
+}
+
+
